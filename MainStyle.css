@@ -21,18 +21,25 @@ div#MenuBar {
     grid-template-columns: 90px 1fr 90px;
 }
 
+div#profileImg > img{
+    margin: 10%;
+    width: 80%; height: 80%;
+
+    border-radius: 50%;
+
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+}
+
 div#nameSection {
     display: grid;
 
-    margin: 14px;
+    margin: 14px 14px 14px 0px;
 
     grid-template-rows: 1fr 1fr;
 }
 
 div#name {
     vertical-align: middle;
-
-
 
     margin: 4px;
 
