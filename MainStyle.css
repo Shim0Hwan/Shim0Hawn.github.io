@@ -37,6 +37,9 @@ div#nameSection {
     margin: 14px 14px 14px 0px;
 
     grid-template-rows: 1fr 1fr;
+
+    font-family: 'Inter';
+    font-style: normal;
 }
 
 div#name {
@@ -44,8 +47,6 @@ div#name {
 
     margin: 4px;
 
-    font-family: 'Inter';
-    font-style: normal;
     font-weight: 500;
     font-size: 20px;
     line-height: 24px;
@@ -54,12 +55,9 @@ div#name {
     color: #222222; 
 }
 
-div#subMessage {
-    
+div#subMessage {  
     margin: 4px;
 
-    font-family: 'Inter';
-    font-style: normal;
     font-weight: 300;
     font-size: 14px;
     line-height: 17px;
@@ -122,7 +120,7 @@ div.specification {
     height: 100%;
 
 
-    grid-template-rows: auto 220px auto 220px auto 220px auto 220px;
+    grid-template-rows: auto 220px auto 220px auto 220px auto 220px auto;
 }
 
 div.specItem {
@@ -140,9 +138,9 @@ div.specItem {
 }
 
 .specItemTitle {
-    font-weight: 100;
+    font-weight: 500;
     font-family: 'Inter';
-
+    font-size: 25px;
 
 }
 
@@ -162,4 +160,16 @@ div.specItem > div {
     text-transform: capitalize;
 
     color: #000000;
+}
+
+div.ContactRoute {
+    margin: 60px 0 10px 0;
+    font-size: 20px;
+}
+div.ContactRouteItem {
+    margin-top: 20px;
+
+    font-weight: 500;
+    font-size: 17px;
+    text-transform: lowercase;
 }
