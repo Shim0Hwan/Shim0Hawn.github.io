@@ -95,6 +95,23 @@ div#ContentsBar {
     background-color: D9D9D9;
 
     box-shadow: inset 0px 2px 20px rgba(0, 0, 0, 0.2);
+
+    overflow-y: scroll;
+}
+
+#ContentsBar::-webkit-scrollbar {
+    width: 8px;
+}
+
+#ContentsBar::-webkit-scrollbar-thumb {
+    height: 30%; /* 스크롤바의 길이 */
+    background: #979797; /* 스크롤바의 색상 */
+    
+    border-radius: 10px;
+}
+
+#ContentsBar::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0);  /*스크롤바 뒷 배경 색상*/
 }
 
 /* Style of Specification */
@@ -103,6 +120,7 @@ div.specification {
     display: grid;
 
     height: 100%;
+
 
     grid-template-rows: auto 220px auto 220px auto 220px auto 220px;
 }
