@@ -110,10 +110,12 @@ function PageHeading({ technical = false }: {technical?: boolean}) {
 }
 
 function Environment() {
-  return <><PageHeading /><section id="work" className="work-list" aria-label="배경 모델링 작업">
-    {content.environment.map((item, index) => <article key={item.slug} className={cn('work-row', index % 2 === 1 && 'work-row-reverse')}>
-        <a className="work-image" href={`${item.slug}.html`} aria-label={`${item.title} 상세 보기`}><img src={item.image} alt={item.title} width={content.projects.find(p => p.slug === item.slug)!.cover[0].width} height={content.projects.find(p => p.slug === item.slug)!.cover[0].height} loading={index ? 'lazy' : 'eager'} decoding="async" /></a>
-        <div className="work-caption"><span className="meta">{String(index + 1).padStart(2, '0')} / {index < 4 ? 'Prop study' : index === 4 ? 'Product film' : index === 5 ? 'Personal work' : 'Production'}</span><h2><a href={`${item.slug}.html`} translate="no">{item.title}</a></h2><p>{item.summary}</p><Button asChild variant="outline" size="icon-lg"><a href={`${item.slug}.html`} aria-label={`${item.title} 상세 보기`}><ArrowUpRight aria-hidden="true" /></a></Button></div>
+  return <><section className="environment-heading"><BlurFade><h1 className="display-title">ENVIRONMENT ART</h1></BlurFade></section><section id="work" className="work-list" aria-label="배경 모델링 작업">
+    {content.environment.map((item, index) => <article key={item.slug} className="work-row">
+        <a className="work-link" href={`${item.slug}.html`} aria-label={`${item.title} 상세 보기`}><figure>
+          <div className="work-image"><img src={item.image} alt={item.title} width={content.projects.find(p => p.slug === item.slug)!.cover[0].width} height={content.projects.find(p => p.slug === item.slug)!.cover[0].height} loading={index ? 'lazy' : 'eager'} fetchPriority={index ? 'auto' : 'high'} decoding="async" /></div>
+          <figcaption className="work-caption"><h2 translate="no">{item.title}</h2><p className="meta">{index < 4 ? 'Prop study' : index === 4 ? 'Product film' : index === 5 ? 'Personal work' : 'Production'}</p></figcaption>
+        </figure></a>
     </article>)}
   </section></>
 }
