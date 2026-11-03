@@ -51,12 +51,13 @@ Get-ChildItem -LiteralPath .. -File -Filter 'portfolio-*' | Copy-Item -Destinati
 
 큰 이름과 제목의 굵기는 기존 디자인을 유지합니다. 큰 제목 자간은 -0.03em, 섹션 제목은 -0.02em이며, 14px 본문과 12px 보조 라벨에는 음수 자간을 사용하지 않습니다. 소개와 이동 버튼은 24px 간격으로 묶어 대표 작품의 중앙에 맞춥니다. 작품 이미지는 호버 시 확대하지 않으며, 각 페이지 제목에만 300ms·8px의 짧은 등장 효과를 적용합니다.
 
-헤더는 로고 없이 Home·배경 모델러·Technical Art·About과 Contact를 제공합니다. 32px 넘게 스크롤하면 300ms 동안 메뉴 폭의 캡슐로 모이며 상단 12px에 고정됩니다. 전환 값은 `src/App.tsx`의 `headerMotion`, 높이와 상단 여백은 CSS 토큰으로 관리합니다. 모션 줄이기 설정에서는 전환을 즉시 적용합니다.
+헤더는 로고 없이 Home·배경 모델러·Technical Art·About과 Contact를 제공합니다. 스크롤 전에는 16px 모서리의 반투명 사각 패널로 표시하며, 70% 흰색 배경·24px 블러·얇은 테두리와 옅은 점 패턴을 사용합니다. 32px 넘게 스크롤하면 패턴이 사라지고 300ms 동안 기존 흰색 캡슐로 모이며 상단 12px에 고정됩니다. 전환 값은 `src/App.tsx`의 `headerMotion`, 높이·상단 여백·유리 효과는 CSS 토큰으로 관리합니다. 모션 줄이기 설정에서는 전환을 즉시 적용하며, 배경 블러를 지원하지 않는 브라우저에서는 불투명 배경을 사용합니다.
 
 ## 레이아웃 참고
 
 - [Matthew Personal Portfolio](https://dribbble.com/shots/22469576-Matthew-Personal-Portfolio-Website-Animation): 큰 타이포그래피, 중립색, 둥근 패널, 검정·흰색 대비.
 - [shadcn.io Animated Underline Navbar](https://www.shadcn.io/blocks/navbar-animated-underline): 넓은 기본 헤더와 hover·키보드 포커스 밑줄. 현재 페이지는 밑줄을 유지.
+- [shadcn.io Glassmorphism Navbar](https://www.shadcn.io/blocks/navbar-glassmorphism): 스크롤 전 반투명 사각 패널·블러·얇은 테두리·옅은 점 패턴의 시각 구성을 참고. 배경 패턴은 정적으로 표현.
 - [shadcn.io Floating Pill Navbar](https://www.shadcn.io/blocks/navbar-floating-pill): 스크롤 후 메뉴 폭에 맞춘 중앙 캡슐과 내부 연락 버튼. 기존 Motion의 레이아웃 애니메이션으로 글자 크기를 유지하며 전환. 모바일 메뉴는 shadcn Dialog 하단 패널로 구성.
 - [shadcn.io Hero Minimal](https://www.shadcn.io/blocks/hero-minimal): 단순한 소개와 대표 작업.
 - [shadcn.io Gallery with Caption](https://www.shadcn.io/blocks/gallery-with-caption): 이미지와 짧은 설명을 교차 배치하는 작품 목록.
