@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react'
-import { ArrowDown, ArrowLeft, ArrowUpRight, Mail, Maximize2, X } from 'lucide-react'
+import { useEffect, useRef, useState } from 'react'
+import { ArrowDown, ArrowLeft, ArrowUpRight, Mail, Maximize2, Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import { Dialog, DialogClose, DialogContent, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
@@ -18,14 +18,35 @@ const project = content.projects.find(item => item.slug === slug)
 const isTechnical = slug.startsWith('technical')
 
 function Header() {
+  const aboutNavigation = useRef(false)
   return <header className="site-header">
     <a className="brand" href="index.html" aria-label="심영환 홈"><span className="brand-symbol" aria-hidden="true">sy.</span><span className="brand-name" translate="no">SHIM YOUNGHWAN</span></a>
     <nav aria-label="주요 메뉴" className="main-nav">
       <a href="environment.html" aria-current={slug.startsWith('environment') ? 'page' : undefined}>배경 모델러</a>
       <a href="technical-art.html" aria-current={isTechnical ? 'page' : undefined}>Technical Art</a>
-      <a className="about-link" href="index.html#about">About</a>
+      <a href="index.html#about">About</a>
     </nav>
-    <Button asChild variant="outline"><a href={`mailto:${email}`} aria-label="이메일 연락"><span className="contact-label">Contact</span><Mail data-icon="inline-end" aria-hidden="true" /></a></Button>
+    <Button asChild className="header-contact"><a href={`mailto:${email}`} aria-label="이메일 연락">Contact<Mail data-icon="inline-end" aria-hidden="true" /></a></Button>
+    <Dialog>
+      <DialogTrigger asChild><Button className="mobile-menu-trigger" variant="ghost" size="icon" aria-label="메뉴 열기"><Menu aria-hidden="true" /></Button></DialogTrigger>
+      <DialogContent className="mobile-menu" showCloseButton={false} aria-describedby={undefined} onCloseAutoFocus={event => {
+        if (aboutNavigation.current) {
+          event.preventDefault()
+          const about = document.getElementById('about')
+          about?.focus({ preventScroll: true })
+          about?.scrollIntoView({ block: 'start' })
+          aboutNavigation.current = false
+        }
+      }}>
+        <div className="mobile-menu-top"><DialogTitle>메뉴</DialogTitle><DialogClose asChild><Button variant="ghost" size="icon" aria-label="메뉴 닫기"><X aria-hidden="true" /></Button></DialogClose></div>
+        <nav aria-label="주요 메뉴" className="mobile-nav">
+          <DialogClose asChild><a href="environment.html" aria-current={slug.startsWith('environment') ? 'page' : undefined}>배경 모델러</a></DialogClose>
+          <DialogClose asChild><a href="technical-art.html" aria-current={isTechnical ? 'page' : undefined}>Technical Art</a></DialogClose>
+          <DialogClose asChild><a href="index.html#about" onClick={() => { aboutNavigation.current = slug === 'index' }}>About</a></DialogClose>
+        </nav>
+        <DialogClose asChild><Button asChild className="mobile-contact"><a href={`mailto:${email}`} aria-label="이메일 연락">Contact<Mail data-icon="inline-end" aria-hidden="true" /></a></Button></DialogClose>
+      </DialogContent>
+    </Dialog>
   </header>
 }
 
@@ -51,7 +72,7 @@ function Home() {
       <BlurFade inView><a href="environment.html" className="discipline-link"><div><h2>ENVIRONMENT<br />ART</h2><ArrowUpRight aria-hidden="true" /></div><span className="discipline-label">배경 모델러</span></a></BlurFade>
       <BlurFade inView delay={0.08}><a href="technical-art.html" className="discipline-link inverse"><div><h2>TECHNICAL<br />ART</h2><ArrowUpRight aria-hidden="true" /></div><span className="discipline-label">테크니컬 아티스트</span></a></BlurFade>
     </section>
-    <section id="about" className="about-panel panel inverse">
+    <section id="about" className="about-panel panel inverse" tabIndex={-1}>
       <BlurFade inView><h2 className="display-title">ABOUT</h2></BlurFade>
       <div className="about-grid"><p className="about-lead">게임의 배경과 프롭,<br />셰이더와 애니메이션을<br />만드는 심영환입니다.</p><div>
         <dl className="experience">
