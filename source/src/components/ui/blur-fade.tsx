@@ -34,9 +34,9 @@ export function BlurFade({
   children,
   className,
   variant,
-  duration = 0.6,
+  duration = 0.3,
   delay = 0,
-  offset = 12,
+  offset = 8,
   direction = "up",
   inView = false,
   inViewMargin = "-50px",
@@ -83,7 +83,7 @@ export function BlurFade({
         transition={{
           delay: 0.04 + delay,
           duration,
-          ease: "easeOut",
+          ease: [0.22, 1, 0.36, 1],
           ...(shouldTransitionFilter ? { filter: { duration } } : {}),
         }}
         className={className}
