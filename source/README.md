@@ -44,14 +44,17 @@ Get-ChildItem -LiteralPath .. -File -Filter 'portfolio-*' | Copy-Item -Destinati
 | 본문 | 14px, 보조 14px, 메타 12px |
 | 제목 | 부제 24px, 섹션 32–48px, 프로젝트 40–88px, 큰 제목 56–144px |
 | 간격 | 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 96 / 128px |
-| 모서리 | 8 / 16 / 24 / 32px, 헤더·연락 버튼은 pill |
+| 모서리 | 8 / 16 / 24 / 32px, 스크롤 헤더 32px 캡슐, 연락 버튼 pill |
 
 모바일에서는 큰 제목과 패널 여백을 낮춥니다. 색상은 밝은 회색 배경, 흰색 콘텐츠 영역, 검정 강조 영역으로 구분합니다.
+
+헤더는 로고 없이 Home·배경 모델러·Technical Art·About과 Contact를 제공합니다. 32px 넘게 스크롤하면 300ms 동안 메뉴 폭의 캡슐로 모이며 상단 12px에 고정됩니다. 전환 값은 `src/App.tsx`의 `headerMotion`, 높이와 상단 여백은 CSS 토큰으로 관리합니다. 모션 줄이기 설정에서는 전환을 즉시 적용합니다.
 
 ## 레이아웃 참고
 
 - [Matthew Personal Portfolio](https://dribbble.com/shots/22469576-Matthew-Personal-Portfolio-Website-Animation): 큰 타이포그래피, 중립색, 둥근 패널, 검정·흰색 대비.
-- [shadcn.io Floating Pill Navbar](https://www.shadcn.io/blocks/navbar-floating-pill): 메뉴 폭에 맞춘 중앙 캡슐과 내부 연락 버튼. 모바일 메뉴는 기존 shadcn Dialog를 활용한 하단 패널로 구성.
+- [shadcn.io Animated Underline Navbar](https://www.shadcn.io/blocks/navbar-animated-underline): 넓은 기본 헤더와 hover·키보드 포커스 밑줄. 현재 페이지는 밑줄을 유지.
+- [shadcn.io Floating Pill Navbar](https://www.shadcn.io/blocks/navbar-floating-pill): 스크롤 후 메뉴 폭에 맞춘 중앙 캡슐과 내부 연락 버튼. 기존 Motion의 레이아웃 애니메이션으로 글자 크기를 유지하며 전환. 모바일 메뉴는 shadcn Dialog 하단 패널로 구성.
 - [shadcn.io Hero Minimal](https://www.shadcn.io/blocks/hero-minimal): 단순한 소개와 대표 작업.
 - [shadcn.io Gallery with Caption](https://www.shadcn.io/blocks/gallery-with-caption): 이미지와 짧은 설명을 교차 배치하는 작품 목록.
 - [shadcn.io Gallery Categorized Tabs](https://www.shadcn.io/blocks/gallery-categorized-tabs): 왼쪽 탐색 영역과 오른쪽 콘텐츠의 구성. 프로젝트를 모두 볼 수 있는 앵커 탐색으로 적용.
@@ -67,6 +70,6 @@ Get-ChildItem -LiteralPath .. -File -Filter 'portfolio-*' | Copy-Item -Destinati
 
 Chrome에서 18개 페이지를 320px·768px로 검사하고, PC·390px 모바일 화면 및 이미지 확대·Escape 닫기·기능별 이동·컨테이너 영상 재생을 확인했습니다. 실제 모바일 기기와 다른 브라우저는 검사하지 않았습니다.
 
-캡슐 헤더는 320·390·768·769·1440px에서 확인했습니다. 모바일 메뉴의 키보드 포커스 순환, Escape 후 메뉴 버튼 복귀, About 선택 후 해당 섹션 이동과 포커스를 확인했습니다. 본문 기본 크기는 14px입니다.
+스크롤 헤더는 320·390·768·769·1440px에서 확인했습니다. 모핑 중간 프레임의 글자 폭과 본문 위치가 유지되며, 밑줄 포커스·sticky 위치·모바일 메뉴·Escape 복귀·About 이동·상세 앵커와 목차의 가림 여부를 확인했습니다. 본문 기본 크기는 14px입니다.
 
 `npm audit --omit=dev`는 경고 0건입니다. 전체 검사에는 shadcn CLI의 간접 의존성 경고 6건(낮음 2, 중간 4)이 남아 있습니다. 해당 CLI는 개발 의존성이며 공개 사이트에 포함하지 않습니다. 호환성을 깨는 강제 다운그레이드는 적용하지 않았습니다.
