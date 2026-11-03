@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { ArrowDown, ArrowLeft, ArrowUpRight, Mail, Maximize2, Menu, X } from 'lucide-react'
+import { motion, useReducedMotion } from 'motion/react'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import { Dialog, DialogClose, DialogContent, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
@@ -16,16 +17,28 @@ const email = 'dudghks667@gmail.com'
 const slug = location.pathname.split('/').pop()?.replace(/\.html$/, '') || 'index'
 const project = content.projects.find(item => item.slug === slug)
 const isTechnical = slug.startsWith('technical')
+const headerMotion = { threshold: 32, radius: 32, duration: 0.3, ease: [0.22, 1, 0.36, 1] as const }
 
 function Header() {
   const aboutNavigation = useRef(false)
-  return <header className="site-header">
-    <a className="brand" href="index.html" aria-label="심영환 홈"><span className="brand-symbol" aria-hidden="true">sy.</span><span className="brand-name" translate="no">SHIM YOUNGHWAN</span></a>
-    <nav aria-label="주요 메뉴" className="main-nav">
+  const [scrolled, setScrolled] = useState(() => window.scrollY > headerMotion.threshold)
+  const reducedMotion = useReducedMotion()
+  const transition = { duration: reducedMotion ? 0 : headerMotion.duration, ease: headerMotion.ease }
+  useEffect(() => {
+    const updateHeader = () => setScrolled(window.scrollY > headerMotion.threshold)
+    updateHeader()
+    window.addEventListener('scroll', updateHeader, { passive: true })
+    return () => window.removeEventListener('scroll', updateHeader)
+  }, [])
+  return <motion.header layoutRoot className="header-shell"><motion.div layout={!reducedMotion} initial={false} animate={{ borderRadius: scrolled ? headerMotion.radius : 0 }} transition={transition} className="site-header" data-scrolled={scrolled}>
+    <motion.nav layout="position" transition={transition} aria-label="주요 메뉴" className="main-nav">
+      <a href="index.html" aria-current={slug === 'index' ? 'page' : undefined}>Home</a>
       <a href="environment.html" aria-current={slug.startsWith('environment') ? 'page' : undefined}>배경 모델러</a>
       <a href="technical-art.html" aria-current={isTechnical ? 'page' : undefined}>Technical Art</a>
       <a href="index.html#about">About</a>
-    </nav>
+    </motion.nav>
+    <motion.a layout="position" transition={transition} className="mobile-home" href="index.html" aria-current={slug === 'index' ? 'page' : undefined}>Home</motion.a>
+    <motion.div layout="position" transition={transition} className="header-actions">
     <Button asChild className="header-contact"><a href={`mailto:${email}`} aria-label="이메일 연락">Contact<Mail data-icon="inline-end" aria-hidden="true" /></a></Button>
     <Dialog>
       <DialogTrigger asChild><Button className="mobile-menu-trigger" variant="ghost" size="icon" aria-label="메뉴 열기"><Menu aria-hidden="true" /></Button></DialogTrigger>
@@ -40,6 +53,7 @@ function Header() {
       }}>
         <div className="mobile-menu-top"><DialogTitle>메뉴</DialogTitle><DialogClose asChild><Button variant="ghost" size="icon" aria-label="메뉴 닫기"><X aria-hidden="true" /></Button></DialogClose></div>
         <nav aria-label="주요 메뉴" className="mobile-nav">
+          <DialogClose asChild><a href="index.html" aria-current={slug === 'index' ? 'page' : undefined}>Home</a></DialogClose>
           <DialogClose asChild><a href="environment.html" aria-current={slug.startsWith('environment') ? 'page' : undefined}>배경 모델러</a></DialogClose>
           <DialogClose asChild><a href="technical-art.html" aria-current={isTechnical ? 'page' : undefined}>Technical Art</a></DialogClose>
           <DialogClose asChild><a href="index.html#about" onClick={() => { aboutNavigation.current = slug === 'index' }}>About</a></DialogClose>
@@ -47,7 +61,8 @@ function Header() {
         <DialogClose asChild><Button asChild className="mobile-contact"><a href={`mailto:${email}`} aria-label="이메일 연락">Contact<Mail data-icon="inline-end" aria-hidden="true" /></a></Button></DialogClose>
       </DialogContent>
     </Dialog>
-  </header>
+    </motion.div>
+  </motion.div></motion.header>
 }
 
 function Footer() {
