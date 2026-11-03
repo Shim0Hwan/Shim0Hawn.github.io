@@ -102,3 +102,36 @@ h2,h3{font-weight:600}
   .path-card h2{font-size:32px;margin-top:24px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+/* Project media preserves the full frame of renders and technical screenshots. */
+.project-media{aspect-ratio:16/10;background:#171a19;border:1px solid var(--line);overflow:hidden}
+.project-media img{width:100%;height:100%;object-fit:contain;transition:transform .25s}
+.project-card:first-child .project-media{aspect-ratio:16/9}
+.ta-grid .project-card:first-child .project-media{aspect-ratio:16/10}
+.project-link:hover .project-media img{transform:scale(1.015)}
+.card-summary{font-size:15px;color:var(--muted);margin-top:10px;line-height:1.7}
+.work-figure{margin:0 0 28px;min-width:0}
+.work-figure img{max-height:760px;object-fit:contain;background:var(--panel)}
+.work-figure video{background:#070908;aspect-ratio:16/9}
+.work-figure figcaption{font-size:13px;color:var(--muted);line-height:1.7;margin-top:12px}
+.image-open{display:block;border:1px solid var(--line)}
+.image-open:hover{border-color:var(--accent)}
+.project-cover .work-figure img{max-height:780px}
+.media-pair{align-items:start;margin-top:24px}
+.media-pair img{height:300px;object-fit:contain}
+.project-note{padding:24px;background:var(--panel);border-left:2px solid var(--accent);margin-top:28px}
+.project-note strong{display:block;margin-bottom:10px}
+.project-note p{margin-bottom:0;font-size:14px}
+.detail-section .source-note{font-size:13px;margin-top:24px}
+.populated-reel{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);align-items:center}
+.populated-reel>.work-figure{margin:0;min-width:0;padding:0 0 16px}
+.populated-reel>.work-figure figcaption{padding-inline:20px}
+.career-list{list-style:none;padding:0;margin:12px 0 0}
+.career-list li{display:grid;grid-template-columns:150px minmax(0,1fr);gap:16px;margin-bottom:18px}
+.career-list li>span{font-size:13px;color:var(--muted)}
+.back-link{padding-bottom:64px}
+.path-preview{margin:28px -10px 0;border:1px solid var(--line);background:#171a19}
+.path-preview img{aspect-ratio:16/9;object-fit:contain}
+.path-card::after{display:none}
+.path-card h2{margin-top:26px}
+@media(max-width:900px){.media-pair img{height:240px}.career-list li{grid-template-columns:1fr;gap:4px}}
+@media(max-width:600px){.populated-reel{grid-template-columns:1fr}.media-pair img{height:auto;max-height:480px}.project-cover .work-figure img{max-height:480px}.work-figure figcaption{font-size:12px}.project-media,.project-card:first-child .project-media{aspect-ratio:16/10}.path-preview{margin-top:24px}.card-caption h3{font-size:22px}}

@@ -15,5 +15,5 @@ filters.addEventListener("click", (event) => {
   for (const item of filters.querySelectorAll("button")) {
     item.setAttribute("aria-pressed", String(item === button));
   }
-  status.textContent = `${button.textContent} · 포맷 ${cards.filter((card) => !card.hidden).length}개 · 등록 작업물 0개`;
+  status.textContent = `${button.textContent} · 작업 ${cards.filter((card) => !card.hidden).length}개`;
 });
