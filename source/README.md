@@ -51,6 +51,8 @@ Get-ChildItem -LiteralPath .. -File -Filter 'portfolio-*' | Copy-Item -Destinati
 
 큰 이름과 제목의 굵기는 기존 디자인을 유지합니다. 큰 제목 자간은 -0.03em, 섹션 제목은 -0.02em이며, 14px 본문과 12px 보조 라벨에는 음수 자간을 사용하지 않습니다. 소개와 이동 버튼은 24px 간격으로 묶어 대표 작품의 중앙에 맞춥니다. 작품 이미지는 호버 시 확대하지 않으며, 각 페이지 제목에만 300ms·8px의 짧은 등장 효과를 적용합니다.
 
+배경 모델러 목록은 Minimal Grid 구성을 사용합니다. Bicycle을 맨 위에 넓게 배치하고 나머지 6개 작업은 PC에서 2열, 768px 이하에서 1열로 표시합니다. 작품명과 분야는 이미지 아래에 항상 보이며, 이미지와 캡션 전체가 기존 상세 페이지로 연결됩니다. 얇은 구분선과 8px 이미지 모서리를 사용하고, 정사각형·세로형 원본도 잘리지 않게 표시합니다. 목록의 긴 설명과 별도 화살표 버튼은 제거하고 제목 영역을 축소했습니다. 홈·TA·프로젝트 상세 화면에는 이 레이아웃을 적용하지 않습니다.
+
 헤더는 로고 없이 Home·배경 모델러·Technical Art·About과 Contact를 제공합니다. 스크롤 전에는 바깥 모서리 16px·내부 버튼 8px·여백 8px로 맞춘 반투명 패널을 표시합니다. 70% 흰색 배경·24px 블러·얇은 테두리를 사용하며, 검은 배경 그라데이션 없이 점 패턴이 양옆과 아래로 사라집니다. 32px 넘게 스크롤하면 패턴이 사라지고 300ms 동안 바깥 32px·내부 버튼 24px의 흰색 캡슐로 모이며 상단 12px에 고정됩니다. 전환 값은 `src/App.tsx`의 `headerMotion`, 높이·상단 여백·유리 효과는 CSS 토큰으로 관리합니다. 모션 줄이기 설정에서는 전환을 즉시 적용하며, 배경 블러를 지원하지 않는 브라우저에서는 불투명 배경을 사용합니다.
 
 ## 레이아웃 참고
@@ -60,7 +62,7 @@ Get-ChildItem -LiteralPath .. -File -Filter 'portfolio-*' | Copy-Item -Destinati
 - [shadcn.io Glassmorphism Navbar](https://www.shadcn.io/blocks/navbar-glassmorphism): 스크롤 전 반투명 사각 패널·블러·얇은 테두리·옅은 점 패턴의 시각 구성을 참고. 배경 패턴은 정적으로 표현.
 - [shadcn.io Floating Pill Navbar](https://www.shadcn.io/blocks/navbar-floating-pill): 스크롤 후 메뉴 폭에 맞춘 중앙 캡슐과 내부 연락 버튼. 기존 Motion의 레이아웃 애니메이션으로 글자 크기를 유지하며 전환. 모바일 메뉴는 shadcn Dialog 하단 패널로 구성.
 - [shadcn.io Hero Minimal](https://www.shadcn.io/blocks/hero-minimal): 단순한 소개와 대표 작업.
-- [shadcn.io Gallery with Caption](https://www.shadcn.io/blocks/gallery-with-caption): 이미지와 짧은 설명을 교차 배치하는 작품 목록.
+- [shadcn.io Minimal Grid Gallery](https://www.shadcn.io/blocks/gallery-grid-minimal): 배경 모델러 목록의 이미지 그리드·얇은 구분선·짧은 캡션 구성. Bicycle 우선 배치, 2열/1열, 상시 캡션으로 조정했으며 페이지네이션은 사용하지 않음.
 - [shadcn.io Gallery Categorized Tabs](https://www.shadcn.io/blocks/gallery-categorized-tabs): 왼쪽 탐색 영역과 오른쪽 콘텐츠의 구성. 프로젝트를 모두 볼 수 있는 앵커 탐색으로 적용.
 - [Magic UI Blur Fade](https://magicui.design/docs/components/blur-fade): 페이지 제목의 짧은 등장 모션.
 - [Unslop by Damir Sokolovsky (@heydamir)](https://heydamir.design/unslop), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/): 간격·아이콘·보조 문구·자간·모션 점검에 사용. 큰 제목의 굵기는 사용자 선택에 따라 유지.
