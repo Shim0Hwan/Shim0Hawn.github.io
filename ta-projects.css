@@ -28,3 +28,19 @@
 .feature-case>.work-figure{margin-bottom:0}
 @media(max-width:1000px){.ta-project-overview{grid-template-columns:1fr;gap:24px}.ta-project-visual img{max-height:500px}.ta-project-heading h3{font-size:36px}}
 @media(max-width:600px){.ta-project-jump{margin:24px 0 28px;gap:6px}.ta-project-jump a{font-size:13px;padding:9px 12px}.ta-project-heading{display:block}.ta-project-heading h3{font-size:31px}.ta-project-heading>.text-link{margin-top:18px}.ta-project-block{padding:30px 0 38px;scroll-margin-top:140px}.project-features{grid-template-columns:1fr}.project-features a{padding:17px}.ta-studies{grid-template-columns:1fr;gap:20px;scroll-margin-top:140px}.feature-case{scroll-margin-top:145px}.feature-case h3{font-size:22px}}
+.ta-project-index{padding-bottom:0}
+.ta-project-jump{flex-wrap:nowrap;overflow-x:auto;gap:8px;margin:22px 0 28px;padding-bottom:6px}
+.ta-project-jump a{flex:0 0 auto;min-height:44px;white-space:nowrap}
+.ta-project-heading{margin-bottom:22px;gap:20px}
+.ta-project-heading h3{font-size:36px;margin-top:8px}
+.ta-project-block{padding:30px 0 40px;scroll-margin-top:95px}
+.ta-project-overview{gap:32px}
+.project-role{font-size:15px;margin-top:16px;color:var(--ink)}
+.project-role strong{font-size:13px;color:var(--muted);margin-bottom:5px}
+.project-description{max-width:620px;font-size:16px;line-height:1.85;margin-bottom:22px}
+.feature-summary{font-size:14px;line-height:1.75}
+.feature-name{font-size:16px}
+.contents a{font-size:14px}
+.feature-case{scroll-margin-top:100px}
+.feature-case>.work-figure{margin-bottom:24px}
+@media(max-width:600px){.ta-project-jump{margin:18px 0 20px;gap:7px}.ta-project-jump a{font-size:14px;padding:10px 12px}.ta-project-block{padding:22px 0 34px;scroll-margin-top:130px}.ta-project-heading{margin-bottom:18px}.ta-project-heading h3{font-size:29px;margin-top:7px}.ta-project-heading>.text-link{margin-top:10px}.ta-project-heading .eyebrow{font-size:11px;letter-spacing:.06em}.ta-project-overview{gap:24px}.feature-case{scroll-margin-top:130px}.project-features a{padding:15px}.feature-summary{font-size:14px}.feature-case h3{font-size:22px}.ta-studies{scroll-margin-top:130px}}
