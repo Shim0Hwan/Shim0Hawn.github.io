@@ -17,7 +17,7 @@ const email = 'dudghks667@gmail.com'
 const slug = location.pathname.split('/').pop()?.replace(/\.html$/, '') || 'index'
 const project = content.projects.find(item => item.slug === slug)
 const isTechnical = slug.startsWith('technical')
-const headerMotion = { threshold: 32, radius: 32, duration: 0.3, ease: [0.22, 1, 0.36, 1] as const }
+const headerMotion = { threshold: 32, expandedRadius: 16, radius: 32, duration: 0.3, ease: [0.22, 1, 0.36, 1] as const }
 
 function Header() {
   const aboutNavigation = useRef(false)
@@ -30,7 +30,7 @@ function Header() {
     window.addEventListener('scroll', updateHeader, { passive: true })
     return () => window.removeEventListener('scroll', updateHeader)
   }, [])
-  return <motion.header layoutRoot className="header-shell"><motion.div layout={!reducedMotion} initial={false} animate={{ borderRadius: scrolled ? headerMotion.radius : 0 }} transition={transition} className="site-header" data-scrolled={scrolled}>
+  return <motion.header layoutRoot className="header-shell"><motion.div layout={!reducedMotion} initial={false} animate={{ borderRadius: scrolled ? headerMotion.radius : headerMotion.expandedRadius }} transition={transition} className="site-header" data-scrolled={scrolled}>
     <motion.nav layout="position" transition={transition} aria-label="주요 메뉴" className="main-nav">
       <a href="index.html" aria-current={slug === 'index' ? 'page' : undefined}>Home</a>
       <a href="environment.html" aria-current={slug.startsWith('environment') ? 'page' : undefined}>배경 모델러</a>

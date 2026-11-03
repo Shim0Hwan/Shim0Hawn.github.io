@@ -79,6 +79,9 @@
   --icon-size: 1rem;
   --header-height: var(--space-16);
   --header-top: max(var(--space-3), env(safe-area-inset-top));
+  --header-glass: color-mix(in srgb, var(--popover) 70%, transparent);
+  --header-glass-edge: color-mix(in srgb, var(--foreground) 12%, transparent);
+  --header-glass-blur: var(--space-6);
   --shadow-nav: 0 0 0 1px color-mix(in srgb, var(--foreground) 8%, transparent), 0 var(--space-2) var(--space-6) color-mix(in srgb, var(--foreground) 8%, transparent);
   --motion-fast: 180ms;
   --motion-medium: 300ms;
@@ -104,7 +107,13 @@
 .skip-link { position: fixed; top: var(--space-2); left: var(--space-2); padding: var(--space-4); background: var(--popover); transform: translateY(-200%); z-index: 60; }
 .skip-link:focus { transform: translateY(0); }
 .header-shell { position: sticky; top: var(--header-top); z-index: 40; margin-bottom: var(--space-8); pointer-events: none; }
+.header-shell::before { content: ''; position: absolute; inset: calc(-1 * var(--space-6)) calc(-1 * var(--space-4)); z-index: -1; pointer-events: none; background-image: radial-gradient(circle, color-mix(in srgb, var(--foreground) 16%, transparent) 1px, transparent 1px), radial-gradient(ellipse at 25% 0%, color-mix(in srgb, var(--foreground) 10%, transparent), transparent 70%); background-size: var(--space-6) var(--space-6), 100% 100%; mask-image: linear-gradient(to bottom, #000 50%, transparent); transition: opacity var(--motion-medium) var(--motion-ease); }
+.header-shell:has(.site-header[data-scrolled=true])::before { opacity: 0; }
 .site-header { position: relative; width: 100%; max-width: 100%; min-height: var(--header-height); display: flex; align-items: center; justify-content: space-between; gap: var(--space-8); margin-inline: auto; padding: var(--space-2) var(--space-6); background: var(--popover); pointer-events: auto; }
+.site-header[data-scrolled=false] { box-shadow: 0 0 0 1px var(--header-glass-edge); }
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .site-header[data-scrolled=false] { background: var(--header-glass); -webkit-backdrop-filter: blur(var(--header-glass-blur)); backdrop-filter: blur(var(--header-glass-blur)); }
+}
 .site-header[data-scrolled=true] { width: fit-content; padding-right: var(--space-2); }
 .site-header::before { content: ''; position: absolute; inset: 0; border-radius: inherit; box-shadow: var(--shadow-nav); opacity: 0; pointer-events: none; transition: opacity var(--motion-medium) var(--motion-ease); }
 .site-header[data-scrolled=true]::before { opacity: 1; }
