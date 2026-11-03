@@ -41,7 +41,7 @@ Get-ChildItem -LiteralPath .. -File -Filter 'portfolio-*' | Copy-Item -Destinati
 | 종류 | 단계 |
 | --- | --- |
 | 서체 | Pretendard Variable, 버전 1.3.9 고정 |
-| 본문 | 16px, 보조 14px, 메타 12px |
+| 본문 | 14px, 보조 14px, 메타 12px |
 | 제목 | 부제 24px, 섹션 32–48px, 프로젝트 40–88px, 큰 제목 56–144px |
 | 간격 | 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 96 / 128px |
 | 모서리 | 8 / 16 / 24 / 32px |
