@@ -61,7 +61,7 @@
   --type-title: clamp(2.5rem, 5.5vw, 5.5rem);
   --type-section: clamp(2rem, 3vw, 3rem);
   --type-subtitle: 1.5rem;
-  --type-body: 1rem;
+  --type-body: 0.875rem;
   --type-small: 0.875rem;
   --type-meta: 0.75rem;
   --leading-display: 0.95;
