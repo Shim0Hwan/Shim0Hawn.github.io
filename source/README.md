@@ -45,8 +45,11 @@ Get-ChildItem -LiteralPath .. -File -Filter 'portfolio-*' | Copy-Item -Destinati
 | 제목 | 부제 24px, 섹션 32–48px, 프로젝트 40–88px, 큰 제목 56–144px |
 | 간격 | 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 96 / 128px |
 | 모서리 | 8 / 16 / 24 / 32px, 스크롤 헤더 32px 캡슐, 연락 버튼 pill |
+| 아이콘 | Lucide 16px, 선 두께 1.5px, 아이콘 버튼 48px |
 
 모바일에서는 큰 제목과 패널 여백을 낮춥니다. 색상은 밝은 회색 배경, 흰색 콘텐츠 영역, 검정 강조 영역으로 구분합니다.
+
+큰 이름과 제목의 굵기는 기존 디자인을 유지합니다. 큰 제목 자간은 -0.03em, 섹션 제목은 -0.02em이며, 14px 본문과 12px 보조 라벨에는 음수 자간을 사용하지 않습니다. 소개와 이동 버튼은 24px 간격으로 묶어 대표 작품의 중앙에 맞춥니다. 작품 이미지는 호버 시 확대하지 않으며, 각 페이지 제목에만 300ms·8px의 짧은 등장 효과를 적용합니다.
 
 헤더는 로고 없이 Home·배경 모델러·Technical Art·About과 Contact를 제공합니다. 32px 넘게 스크롤하면 300ms 동안 메뉴 폭의 캡슐로 모이며 상단 12px에 고정됩니다. 전환 값은 `src/App.tsx`의 `headerMotion`, 높이와 상단 여백은 CSS 토큰으로 관리합니다. 모션 줄이기 설정에서는 전환을 즉시 적용합니다.
 
@@ -58,7 +61,8 @@ Get-ChildItem -LiteralPath .. -File -Filter 'portfolio-*' | Copy-Item -Destinati
 - [shadcn.io Hero Minimal](https://www.shadcn.io/blocks/hero-minimal): 단순한 소개와 대표 작업.
 - [shadcn.io Gallery with Caption](https://www.shadcn.io/blocks/gallery-with-caption): 이미지와 짧은 설명을 교차 배치하는 작품 목록.
 - [shadcn.io Gallery Categorized Tabs](https://www.shadcn.io/blocks/gallery-categorized-tabs): 왼쪽 탐색 영역과 오른쪽 콘텐츠의 구성. 프로젝트를 모두 볼 수 있는 앵커 탐색으로 적용.
-- [Magic UI Blur Fade](https://magicui.design/docs/components/blur-fade): 제목과 작품의 절제된 등장 모션.
+- [Magic UI Blur Fade](https://magicui.design/docs/components/blur-fade): 페이지 제목의 짧은 등장 모션.
+- [Unslop by Damir Sokolovsky (@heydamir)](https://heydamir.design/unslop), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/): 간격·아이콘·보조 문구·자간·모션 점검에 사용. 큰 제목의 굵기는 사용자 선택에 따라 유지.
 
 공개된 레이아웃을 참고해 직접 구현했으며 유료 블록 코드와 참고 작가의 이미지·작업물은 사용하지 않았습니다.
 
