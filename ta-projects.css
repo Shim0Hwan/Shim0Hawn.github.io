@@ -44,3 +44,5 @@
 .feature-case{scroll-margin-top:100px}
 .feature-case>.work-figure{margin-bottom:24px}
 @media(max-width:600px){.ta-project-jump{margin:18px 0 20px;gap:7px}.ta-project-jump a{font-size:14px;padding:10px 12px}.ta-project-block{padding:22px 0 34px;scroll-margin-top:130px}.ta-project-heading{margin-bottom:18px}.ta-project-heading h3{font-size:29px;margin-top:7px}.ta-project-heading>.text-link{margin-top:10px}.ta-project-heading .eyebrow{font-size:11px;letter-spacing:.06em}.ta-project-overview{gap:24px}.feature-case{scroll-margin-top:130px}.project-features a{padding:15px}.feature-summary{font-size:14px}.feature-case h3{font-size:22px}.ta-studies{scroll-margin-top:130px}}
+
+p.case-facts{grid-column:1/-1;margin:0 0 8px}
