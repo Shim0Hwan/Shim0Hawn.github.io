@@ -44,13 +44,14 @@ Get-ChildItem -LiteralPath .. -File -Filter 'portfolio-*' | Copy-Item -Destinati
 | 본문 | 14px, 보조 14px, 메타 12px |
 | 제목 | 부제 24px, 섹션 32–48px, 프로젝트 40–88px, 큰 제목 56–144px |
 | 간격 | 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 96 / 128px |
-| 모서리 | 8 / 16 / 24 / 32px |
+| 모서리 | 8 / 16 / 24 / 32px, 헤더·연락 버튼은 pill |
 
 모바일에서는 큰 제목과 패널 여백을 낮춥니다. 색상은 밝은 회색 배경, 흰색 콘텐츠 영역, 검정 강조 영역으로 구분합니다.
 
 ## 레이아웃 참고
 
 - [Matthew Personal Portfolio](https://dribbble.com/shots/22469576-Matthew-Personal-Portfolio-Website-Animation): 큰 타이포그래피, 중립색, 둥근 패널, 검정·흰색 대비.
+- [shadcn.io Floating Pill Navbar](https://www.shadcn.io/blocks/navbar-floating-pill): 메뉴 폭에 맞춘 중앙 캡슐과 내부 연락 버튼. 모바일 메뉴는 기존 shadcn Dialog를 활용한 하단 패널로 구성.
 - [shadcn.io Hero Minimal](https://www.shadcn.io/blocks/hero-minimal): 단순한 소개와 대표 작업.
 - [shadcn.io Gallery with Caption](https://www.shadcn.io/blocks/gallery-with-caption): 이미지와 짧은 설명을 교차 배치하는 작품 목록.
 - [shadcn.io Gallery Categorized Tabs](https://www.shadcn.io/blocks/gallery-categorized-tabs): 왼쪽 탐색 영역과 오른쪽 콘텐츠의 구성. 프로젝트를 모두 볼 수 있는 앵커 탐색으로 적용.
@@ -65,5 +66,7 @@ Get-ChildItem -LiteralPath .. -File -Filter 'portfolio-*' | Copy-Item -Destinati
 배포 시 `dist/`의 내용을 사이트 저장소 루트에, 편집 소스를 `source/`에 반영합니다. GitHub Pages는 기존 `main` 루트 배포를 유지합니다. 로컬 관리용 `CONTENT-SOURCES.md`, 원본 자료, 게임 프로젝트와 백업은 업로드하지 않습니다.
 
 Chrome에서 18개 페이지를 320px·768px로 검사하고, PC·390px 모바일 화면 및 이미지 확대·Escape 닫기·기능별 이동·컨테이너 영상 재생을 확인했습니다. 실제 모바일 기기와 다른 브라우저는 검사하지 않았습니다.
+
+캡슐 헤더는 320·390·768·769·1440px에서 확인했습니다. 모바일 메뉴의 키보드 포커스 순환, Escape 후 메뉴 버튼 복귀, About 선택 후 해당 섹션 이동과 포커스를 확인했습니다. 본문 기본 크기는 14px입니다.
 
 `npm audit --omit=dev`는 경고 0건입니다. 전체 검사에는 shadcn CLI의 간접 의존성 경고 6건(낮음 2, 중간 4)이 남아 있습니다. 해당 CLI는 개발 의존성이며 공개 사이트에 포함하지 않습니다. 호환성을 깨는 강제 다운그레이드는 적용하지 않았습니다.
