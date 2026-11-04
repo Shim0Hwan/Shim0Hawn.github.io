@@ -33,7 +33,7 @@ function Header() {
   return <motion.header layoutRoot className="header-shell"><motion.div layout={!reducedMotion} initial={false} animate={{ borderRadius: scrolled ? headerMotion.radius : headerMotion.expandedRadius }} transition={transition} className="site-header" data-scrolled={scrolled}>
     <motion.nav layout="position" transition={transition} aria-label="주요 메뉴" className="main-nav">
       <a href="index.html" aria-current={slug === 'index' ? 'page' : undefined}>Home</a>
-      <a href="environment.html" aria-current={slug.startsWith('environment') ? 'page' : undefined}>배경 모델러</a>
+      <a href="environment.html" aria-current={slug.startsWith('environment') ? 'page' : undefined}>Environment Art</a>
       <a href="technical-art.html" aria-current={isTechnical ? 'page' : undefined}>Technical Art</a>
       <a href="index.html#about">About</a>
     </motion.nav>
@@ -54,7 +54,7 @@ function Header() {
         <div className="mobile-menu-top"><DialogTitle>메뉴</DialogTitle><DialogClose asChild><Button variant="ghost" size="icon" aria-label="메뉴 닫기"><X aria-hidden="true" /></Button></DialogClose></div>
         <nav aria-label="주요 메뉴" className="mobile-nav">
           <DialogClose asChild><a href="index.html" aria-current={slug === 'index' ? 'page' : undefined}>Home</a></DialogClose>
-          <DialogClose asChild><a href="environment.html" aria-current={slug.startsWith('environment') ? 'page' : undefined}>배경 모델러</a></DialogClose>
+          <DialogClose asChild><a href="environment.html" aria-current={slug.startsWith('environment') ? 'page' : undefined}>Environment Art</a></DialogClose>
           <DialogClose asChild><a href="technical-art.html" aria-current={isTechnical ? 'page' : undefined}>Technical Art</a></DialogClose>
           <DialogClose asChild><a href="index.html#about" onClick={() => { aboutNavigation.current = slug === 'index' }}>About</a></DialogClose>
         </nav>
@@ -84,8 +84,8 @@ function Home() {
       </div>
     </section>
     <section id="work" className="discipline-section" aria-label="포트폴리오 분야">
-      <a href="environment.html" className="discipline-link"><div><h2>ENVIRONMENT<br />ART</h2><ArrowUpRight aria-hidden="true" /></div><span className="discipline-label">배경 모델러</span></a>
-      <a href="technical-art.html" className="discipline-link inverse"><div><h2>TECHNICAL<br />ART</h2><ArrowUpRight aria-hidden="true" /></div><span className="discipline-label">테크니컬 아티스트</span></a>
+      <a href="environment.html" className="discipline-link"><div><h2>ENVIRONMENT<br />ART</h2><ArrowUpRight aria-hidden="true" /></div><span className="discipline-label">배경 모델링</span></a>
+      <a href="technical-art.html" className="discipline-link inverse"><div><h2>TECHNICAL<br />ART</h2><ArrowUpRight aria-hidden="true" /></div><span className="discipline-label">테크니컬 아트</span></a>
     </section>
     <section id="about" className="about-panel panel inverse" tabIndex={-1}>
       <h2 className="display-title">ABOUT</h2>
@@ -104,7 +104,7 @@ function Home() {
 
 function PageHeading({ technical = false }: {technical?: boolean}) {
   return <section className="page-heading panel">
-    <div className="heading-top"><p className="meta">{technical ? '셰이더 · 도구 · 애니메이션' : '모델링 · 텍스처링'}</p><span>{technical ? '테크니컬 아티스트' : '배경 모델러'}</span></div>
+    <div className="heading-top"><p className="meta">{technical ? '셰이더 · 도구 · 애니메이션' : '모델링 · 텍스처링'}</p><span>{technical ? '테크니컬 아트' : '배경 모델링'}</span></div>
     <BlurFade><h1 className="display-title">{technical ? 'TECHNICAL' : 'ENVIRONMENT'}<br />ART<span className="work-count">({technical ? content.technical.length : content.environment.length})</span></h1></BlurFade>
   </section>
 }
