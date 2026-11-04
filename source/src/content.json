@@ -449,11 +449,11 @@
             {
               "kind": "video",
               "src": "portfolio-container-turntable-qhd.mp4",
-              "alt": "컨테이너 턴테이블: 왼쪽 재질 렌더, 오른쪽 메시 플로우 (10초, 무음)",
-              "caption": "컨테이너 턴테이블 (10초, 무음)",
+              "alt": "컨테이너 턴테이블: 왼쪽 재질 렌더, 오른쪽 메시 플로우",
+              "caption": "재질 / 메시 플로우",
               "width": 2880,
               "height": 1440,
-              "poster": "portfolio-container-compare-full.webp"
+              "poster": "portfolio-container-turntable-poster.webp"
             },
             {
               "kind": "image",
