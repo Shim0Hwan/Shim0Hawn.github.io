@@ -102,15 +102,8 @@ function Home() {
   </>
 }
 
-function PageHeading({ technical = false }: {technical?: boolean}) {
-  return <section className="page-heading panel">
-    <div className="heading-top"><p className="meta">{technical ? '셰이더 · 도구 · 애니메이션' : '모델링 · 텍스처링'}</p><span>{technical ? '테크니컬 아트' : '배경 모델링'}</span></div>
-    <BlurFade><h1 className="display-title">{technical ? 'TECHNICAL' : 'ENVIRONMENT'}<br />ART<span className="work-count">({technical ? content.technical.length : content.environment.length})</span></h1></BlurFade>
-  </section>
-}
-
 function Environment() {
-  return <><section className="environment-heading"><BlurFade><h1 className="display-title">ENVIRONMENT ART</h1></BlurFade></section><section id="work" className="work-list" aria-label="배경 모델링 작업">
+  return <><section className="page-heading"><BlurFade><h1 className="display-title">ENVIRONMENT ART</h1></BlurFade></section><section id="work" className="work-list" aria-label="배경 모델링 작업">
     {content.environment.map((item, index) => <article key={item.slug} className="work-row">
         <a className="work-link" href={`${item.slug}.html`} aria-label={`${item.title} 상세 보기`}><figure>
           <div className="work-image"><img src={item.image} alt={item.title} width={content.projects.find(p => p.slug === item.slug)!.cover[0].width} height={content.projects.find(p => p.slug === item.slug)!.cover[0].height} loading={index ? 'lazy' : 'eager'} fetchPriority={index ? 'auto' : 'high'} decoding="async" /></div>
@@ -121,7 +114,7 @@ function Environment() {
 }
 
 function Technical() {
-  return <><PageHeading technical /><div id="work" className="technical-layout">
+  return <><section className="page-heading"><BlurFade><h1 className="display-title">TECHNICAL ART</h1></BlurFade></section><div id="work" className="technical-layout">
     <nav className="project-rail" aria-label="TA 프로젝트"><span className="meta">프로젝트</span>{content.technical.map(item => <a href={`#${item.id}`} key={item.id}>{item.title}</a>)}<a href="#studies">개인 연구</a></nav>
     <div className="technical-projects">{content.technical.map((item, index) => <article id={item.id} className="technical-project" key={item.id}>
       <div className="project-title-row"><div><p className="meta">0{index + 1} / {index === 2 ? '민트로켓 · TA 인턴' : '팀 프로젝트'}</p><h2><a href={`${item.slug}.html`} translate="no">{item.title}</a></h2></div><Button asChild variant="outline" size="icon-lg"><a href={`${item.slug}.html`} aria-label={`${item.title} 상세 보기`}><ArrowUpRight aria-hidden="true" /></a></Button></div>
