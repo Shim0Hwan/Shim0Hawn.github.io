@@ -117,11 +117,11 @@ function Technical() {
   return <><section className="page-heading"><BlurFade><h1 className="display-title">TECHNICAL ART</h1></BlurFade></section><div id="work" className="technical-layout">
     <nav className="project-rail" aria-label="TA 프로젝트"><span className="meta">프로젝트</span>{content.technical.map(item => <a href={`#${item.id}`} key={item.id}>{item.title}</a>)}<a href="#studies">개인 연구</a></nav>
     <div className="technical-projects">{content.technical.map((item, index) => <article id={item.id} className="technical-project" key={item.id}>
-      <div className="project-title-row"><div><p className="meta">0{index + 1} / {index === 2 ? '민트로켓 · TA 인턴' : '팀 프로젝트'}</p><h2><a href={`${item.slug}.html`} translate="no">{item.title}</a></h2></div><Button asChild variant="outline" size="icon-lg"><a href={`${item.slug}.html`} aria-label={`${item.title} 상세 보기`}><ArrowUpRight aria-hidden="true" /></a></Button></div>
-      <a className="technical-image" href={`${item.slug}.html`} aria-label={`${item.title} 상세 보기`}><img src={item.image} alt={`${item.title} 작업 화면`} width="960" height="540" loading={index ? 'lazy' : 'eager'} decoding="async" /></a>
+      <div className="project-title-row"><div><p className="meta">0{index + 1} / {index === 2 ? '민트로켓 · TA 인턴' : '팀 프로젝트'}</p><h2><a className="technical-project-link" href={`${item.slug}.html`} translate="no">{item.title}</a></h2></div><ArrowUpRight className="project-arrow" aria-hidden="true" /></div>
+      <div className="technical-image"><img src={item.image} alt={`${item.title} 작업 화면`} width="960" height="540" loading={index ? 'lazy' : 'eager'} decoding="async" /></div>
       <div className="technical-info"><div><p>{item.summary}</p><p className="technical-role">{item.role}</p></div><ol className="feature-links">{item.features.map(feature => <li key={feature.href}><a href={feature.href}>{feature.title}<ArrowUpRight aria-hidden="true" /></a></li>)}</ol></div>
     </article>)}
-    <article id="studies" className="studies-row"><div><p className="meta">개인 연구</p><h2>리깅과 재질 연구</h2></div><Button asChild variant="outline" size="icon-lg"><a href="technical-studies.html" aria-label="리깅과 재질 연구 상세 보기"><ArrowUpRight aria-hidden="true" /></a></Button></article>
+    <article id="studies" className="technical-project studies-row"><div><p className="meta">개인 연구</p><h2><a className="technical-project-link" href="technical-studies.html">리깅과 재질 연구</a></h2></div><ArrowUpRight className="project-arrow" aria-hidden="true" /></article>
     </div>
   </div></>
 }
