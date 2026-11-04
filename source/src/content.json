@@ -315,8 +315,8 @@
           "src": "portfolio-cap-render-hq.webp",
           "alt": "모자 최종 렌더",
           "caption": "모자 최종 렌더",
-          "width": 2048,
-          "height": 2048
+          "width": 1080,
+          "height": 1920
         }
       ],
       "sections": [
@@ -433,8 +433,8 @@
           "src": "portfolio-container-render-polished.webp",
           "alt": "컨테이너 최종 렌더",
           "caption": "컨테이너 최종 렌더",
-          "width": 2560,
-          "height": 2560
+          "width": 1920,
+          "height": 1920
         }
       ],
       "sections": [

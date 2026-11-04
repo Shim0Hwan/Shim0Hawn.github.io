@@ -221,6 +221,10 @@
 .project-cover { margin-top: var(--space-6); }
 .project-cover .image-button, .project-cover video { border-radius: var(--radius-xl); }
 .project-cover img { max-height: 48rem; object-fit: contain; background: var(--media-background); }
+.project-cover .portrait-media:has(img[src="portfolio-cap-render-hq.webp"]) { max-width: none; }
+.project-cover img[src="portfolio-container-render-polished.webp"], .project-cover img[src="portfolio-cap-render-hq.webp"] { aspect-ratio: 4 / 3; object-fit: cover; }
+.work-image img[src="portfolio-container-render-polished.webp"], .project-cover img[src="portfolio-container-render-polished.webp"] { object-position: 50% 70%; }
+.work-image img[src="portfolio-cap-render-hq.webp"], .project-cover img[src="portfolio-cap-render-hq.webp"] { object-position: 50% 62%; }
 .project-cover figcaption { display: none; }
 .detail-section { padding-bottom: var(--section-gap); margin-bottom: var(--section-gap); border-bottom: 1px solid var(--border); }
 .detail-section:last-child { margin-bottom: 0; padding-bottom: 0; border: none; }
