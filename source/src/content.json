@@ -209,6 +209,15 @@
           "text": [],
           "media": [
             {
+              "kind": "video",
+              "src": "portfolio-boot-turntable-qhd.mp4",
+              "alt": "군화 턴테이블: 왼쪽 재질 렌더, 오른쪽 메시 플로우",
+              "caption": "재질 / 메시 플로우",
+              "width": 2880,
+              "height": 1440,
+              "poster": "portfolio-boot-turntable-poster.webp"
+            },
+            {
               "kind": "image",
               "src": "portfolio-boot-detail-hq.webp",
               "alt": "군화 재질과 구조 디테일",
