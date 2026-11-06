@@ -1387,12 +1387,12 @@
           "media": [
             {
               "kind": "video",
-              "src": "portfolio-diablackjack.mp4",
-              "alt": "DiaBlackJack 15초 소개 영상",
-              "caption": "DiaBlackJack 게임플레이 소개 (15초)",
-              "width": 1280,
-              "height": 720,
-              "poster": "portfolio-p03-0.webp"
+              "src": "portfolio-diablackjack-en.mp4",
+              "alt": "DiaBlackJack 영어 소개 영상",
+              "caption": "DiaBlackJack 게임플레이 소개",
+              "width": 1920,
+              "height": 1080,
+              "poster": "portfolio-diablackjack-en.webp"
             }
           ]
         },
@@ -1405,54 +1405,37 @@
           ],
           "media": [
             {
-              "kind": "image",
-              "src": "portfolio-p05-0.webp",
-              "alt": "이동 경로만 표시한 지도",
-              "caption": "이동 경로만 표시한 지도",
-              "width": 1152,
-              "height": 648
-            },
-            {
-              "kind": "image",
-              "src": "portfolio-p05-1.webp",
-              "alt": "같은 시드와 카메라에서 지형과 시설을 표시한 지도",
-              "caption": "같은 시드와 카메라에서 지형과 시설을 표시한 지도",
-              "width": 1152,
-              "height": 648
+              "kind": "video",
+              "src": "portfolio-dbj-map-themes.mp4",
+              "alt": "다섯 테마의 3D 지도가 펼쳐지고 접히는 게임 화면",
+              "caption": "협곡 · 카지노 · 교단 마을 · 노동 수용소 · 서부 마을",
+              "width": 2560,
+              "height": 1440,
+              "poster": "portfolio-dbj-map-themes.webp"
             }
           ]
         },
         {
           "id": "tool",
-          "title": "나무판 메시 생성 도구",
-          "label": "02 / MESH GENERATION TOOL",
+          "title": "나무판 메시와 셰이더",
+          "label": "02 / MESH & SHADER",
           "text": [
-            "스프라이트의 윤곽을 추출해 두께가 있는 나무판 메시로 만드는 에디터 도구를 제작했습니다."
+            "스프라이트 윤곽으로 나무판 메시를 만들고, 앞면의 페인트와 옆면의 나무 단면을 표현했습니다."
           ],
           "media": [
             {
               "kind": "image",
               "src": "portfolio-p08-1.webp",
               "alt": "윤곽 메시 생성 에디터 도구",
-              "caption": "윤곽 메시 생성 에디터 도구",
+              "caption": "",
               "width": 455,
               "height": 770
-            }
-          ]
-        },
-        {
-          "id": "wood-surface",
-          "title": "나무 단면과 페인트 셰이더",
-          "label": "03 / WOOD & PAINT SHADER",
-          "text": [
-            "캐릭터의 앞면은 페인트로, 옆면은 나무 단면으로 표현했습니다."
-          ],
-          "media": [
+            },
             {
               "kind": "image",
               "src": "portfolio-p08-2.webp",
               "alt": "나무 단면과 페인트 표면을 적용한 캐릭터",
-              "caption": "나무 단면과 페인트 표면을 적용한 캐릭터",
+              "caption": "",
               "width": 550,
               "height": 475
             },
@@ -1460,99 +1443,42 @@
               "kind": "image",
               "src": "portfolio-p08-0.webp",
               "alt": "같은 도구로 제작한 보따리 상인, 사이비 신도, 보안관과 총잡이",
-              "caption": "같은 도구로 제작한 보따리 상인, 사이비 신도, 보안관과 총잡이",
+              "caption": "",
               "width": 640,
               "height": 240
+            },
+            {
+              "kind": "video",
+              "src": "portfolio-dbj-wood-character.mp4",
+              "alt": "나무판 캐릭터의 등장, 피격 반응과 퇴장",
+              "caption": "등장 · 피격 · 퇴장",
+              "width": 2560,
+              "height": 1440,
+              "poster": "portfolio-dbj-wood-character.webp"
             }
           ]
         },
         {
           "id": "combat",
-          "title": "카드 효과별 전투 연출",
-          "label": "COMBAT DIRECTION",
-          "text": [
-            "기존 전투 코어와 타임라인을 바탕으로 카드 효과마다 동작과 반응을 연결했습니다."
-          ],
-          "media": []
-        },
-        {
-          "id": "revolver",
-          "title": "리볼버 연출",
-          "label": "",
-          "text": [
-            "리볼버의 준비, 장전, 발사에 맞춰 카메라와 피격 반응, 효과음을 연출했습니다."
-          ],
+          "title": "게임 연출",
+          "label": "03 / GAME DIRECTION",
+          "text": [],
           "media": [
             {
               "kind": "video",
-              "src": "portfolio-dbj-revolver.mp4",
-              "alt": "리볼버 전투 연출 (16초, 무음)",
-              "caption": "리볼버 전투 연출 (16초, 무음)",
-              "width": 1280,
-              "height": 720,
-              "poster": "portfolio-dbj-revolver.webp"
-            }
-          ]
-        },
-        {
-          "id": "knife",
-          "title": "칼 투척 연출",
-          "label": "",
-          "text": [
-            "칼 투척과 피격 반응에 맞춰 카메라와 효과음을 연출했습니다."
-          ],
-          "media": [
-            {
-              "kind": "image",
-              "src": "portfolio-p07-1.webp",
-              "alt": "칼 투척",
-              "caption": "칼 투척",
-              "width": 576,
-              "height": 324
-            }
-          ]
-        },
-        {
-          "id": "crystal",
-          "title": "수정구슬 카드 선택",
-          "label": "",
-          "text": [
-            "수정구슬 안에서 덱의 카드를 미리 확인하고 선택하는 동작을 구현했습니다."
-          ],
-          "media": [
-            {
-              "kind": "image",
-              "src": "portfolio-p07-10.webp",
-              "alt": "수정구슬을 통한 카드 선택",
-              "caption": "수정구슬을 통한 카드 선택",
-              "width": 576,
-              "height": 324
-            }
-          ]
-        },
-        {
-          "id": "hammer",
-          "title": "망치 타격 연출",
-          "label": "",
-          "text": [
-            "망치 타격에 맞춰 카메라와 피격 반응, 효과음을 연출했습니다."
-          ],
-          "media": [
-            {
-              "kind": "video",
-              "src": "portfolio-dbj-hammer.mp4",
-              "alt": "망치 타격 연출 (8초, 무음)",
-              "caption": "망치 타격 연출 (8초, 무음)",
-              "width": 1280,
-              "height": 720,
-              "poster": "portfolio-dbj-hammer.webp"
+              "src": "portfolio-dbj-game-direction.mp4",
+              "alt": "상대에게 사용하는 리볼버와 칼 투척, 수정구슬, 망치, 거짓말 탐지기 게임 연출",
+              "caption": "리볼버 · 칼 투척 · 수정구슬 · 망치 · 거짓말 탐지기",
+              "width": 2560,
+              "height": 1440,
+              "poster": "portfolio-dbj-game-direction.webp"
             }
           ]
         },
         {
           "id": "ai",
           "title": "AI 활용 제작 과정",
-          "label": "08 / AI-assisted workflow",
+          "label": "04 / AI-assisted workflow",
           "text": [
             "Codex 스킬을 작성해 기획과 구현에 활용했습니다. 콘셉트 생성과 Blender 에셋 제작에도 AI를 사용했습니다."
           ],
@@ -1710,11 +1636,11 @@
       "cover": [
         {
           "kind": "video",
-          "src": "portfolio-breakshoot-demo.mp4",
-          "alt": "Break Shoot 게임플레이 소개 (15초).",
-          "caption": "Break Shoot 게임플레이 소개 (15초)",
-          "width": 1280,
-          "height": 720,
+          "src": "portfolio-breakshoot-full.mp4",
+          "alt": "Break Shoot 게임플레이 소개",
+          "caption": "Break Shoot 게임플레이 소개",
+          "width": 1920,
+          "height": 1080,
           "poster": "portfolio-breakshoot.webp"
         }
       ],
@@ -1773,12 +1699,21 @@
           "media": [
             {
               "kind": "video",
-              "src": "portfolio-sticker-demo.mp4",
-              "alt": "스티커 제거 연출 시연 (3회 반복, 무음)",
-              "caption": "스티커 제거 연출 시연 (3회 반복, 무음)",
-              "width": 1280,
-              "height": 720,
-              "poster": "portfolio-sticker-demo.webp"
+              "src": "portfolio-sticker-ingame-single.mp4",
+              "alt": "Break Shoot 인게임 스티커 1개 제거 연출",
+              "caption": "스티커 1개 제거",
+              "width": 2560,
+              "height": 1440,
+              "poster": "portfolio-sticker-ingame-single.webp"
+            },
+            {
+              "kind": "video",
+              "src": "portfolio-sticker-ingame-three.mp4",
+              "alt": "Break Shoot 인게임 스티커 3개 제거 연출",
+              "caption": "스티커 3개 제거",
+              "width": 2560,
+              "height": 1440,
+              "poster": "portfolio-sticker-ingame-three.webp"
             }
           ]
         },
@@ -2006,27 +1941,11 @@
         },
         {
           "href": "technical-diablackjack.html#tool",
-          "title": "나무판 메시 생성 도구"
+          "title": "나무판 메시와 셰이더"
         },
         {
-          "href": "technical-diablackjack.html#wood-surface",
-          "title": "나무 단면과 페인트 셰이더"
-        },
-        {
-          "href": "technical-diablackjack.html#revolver",
-          "title": "리볼버 연출"
-        },
-        {
-          "href": "technical-diablackjack.html#knife",
-          "title": "칼 투척 연출"
-        },
-        {
-          "href": "technical-diablackjack.html#crystal",
-          "title": "수정구슬 카드 선택"
-        },
-        {
-          "href": "technical-diablackjack.html#hammer",
-          "title": "망치 타격 연출"
+          "href": "technical-diablackjack.html#combat",
+          "title": "게임 연출"
         },
         {
           "href": "technical-diablackjack.html#ai",

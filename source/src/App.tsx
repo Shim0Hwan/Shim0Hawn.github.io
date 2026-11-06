@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from 'react'
-import { ArrowDown, ArrowLeft, ArrowUp, ArrowUpRight, Mail, Maximize2, Menu, X } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import { ArrowLeft, ArrowUp, ArrowUpRight, Mail, Maximize2, Menu, X } from 'lucide-react'
 import { motion, useReducedMotion } from 'motion/react'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
@@ -20,7 +20,6 @@ const isTechnical = slug.startsWith('technical')
 const headerMotion = { threshold: 32, expandedRadius: 16, radius: 32, duration: 0.3, ease: [0.22, 1, 0.36, 1] as const }
 
 function Header() {
-  const aboutNavigation = useRef(false)
   const [scrolled, setScrolled] = useState(() => window.scrollY > headerMotion.threshold)
   const reducedMotion = useReducedMotion()
   const transition = { duration: reducedMotion ? 0 : headerMotion.duration, ease: headerMotion.ease }
@@ -35,28 +34,18 @@ function Header() {
       <a href="index.html" aria-current={slug === 'index' ? 'page' : undefined}>Home</a>
       <a href="environment.html" aria-current={slug.startsWith('environment') ? 'page' : undefined}>Environment Art</a>
       <a href="technical-art.html" aria-current={isTechnical ? 'page' : undefined}>Technical Art</a>
-      <a href="index.html#about">About</a>
     </motion.nav>
     <motion.a layout="position" transition={transition} className="mobile-home" href="index.html" aria-current={slug === 'index' ? 'page' : undefined}>Home</motion.a>
     <motion.div layout="position" transition={transition} className="header-actions">
     <Button asChild className="header-contact"><a href={`mailto:${email}`} aria-label="이메일 연락">Contact<Mail data-icon="inline-end" aria-hidden="true" /></a></Button>
     <Dialog>
       <DialogTrigger asChild><Button className="mobile-menu-trigger" variant="ghost" size="icon" aria-label="메뉴 열기"><Menu aria-hidden="true" /></Button></DialogTrigger>
-      <DialogContent className="mobile-menu" showCloseButton={false} aria-describedby={undefined} onCloseAutoFocus={event => {
-        if (aboutNavigation.current) {
-          event.preventDefault()
-          const about = document.getElementById('about')
-          about?.focus({ preventScroll: true })
-          about?.scrollIntoView({ block: 'start' })
-          aboutNavigation.current = false
-        }
-      }}>
+      <DialogContent className="mobile-menu" showCloseButton={false} aria-describedby={undefined}>
         <div className="mobile-menu-top"><DialogTitle>메뉴</DialogTitle><DialogClose asChild><Button variant="ghost" size="icon" aria-label="메뉴 닫기"><X aria-hidden="true" /></Button></DialogClose></div>
         <nav aria-label="주요 메뉴" className="mobile-nav">
           <DialogClose asChild><a href="index.html" aria-current={slug === 'index' ? 'page' : undefined}>Home</a></DialogClose>
           <DialogClose asChild><a href="environment.html" aria-current={slug.startsWith('environment') ? 'page' : undefined}>Environment Art</a></DialogClose>
           <DialogClose asChild><a href="technical-art.html" aria-current={isTechnical ? 'page' : undefined}>Technical Art</a></DialogClose>
-          <DialogClose asChild><a href="index.html#about" onClick={() => { aboutNavigation.current = slug === 'index' }}>About</a></DialogClose>
         </nav>
         <DialogClose asChild><Button asChild className="mobile-contact"><a href={`mailto:${email}`} aria-label="이메일 연락">Contact<Mail data-icon="inline-end" aria-hidden="true" /></a></Button></DialogClose>
       </DialogContent>
@@ -76,28 +65,35 @@ function Footer() {
 function Home() {
   return <>
     <section className="home-hero panel" aria-labelledby="home-title">
-      <div className="hero-kicker"><p>심영환 <span className="text-muted-foreground">/ SHIM</span></p><p>Environment Artist<br />& Technical Artist</p></div>
-      <BlurFade><h1 className="hero-name" id="home-title" translate="no">YOUNGHWAN</h1></BlurFade>
-      <div className="hero-feature">
-        <div className="hero-intro"><p>배경·프롭 모델링<br />셰이더·애니메이션</p><a href="#work" className="scroll-link" aria-label="포트폴리오 분야 보기"><ArrowDown aria-hidden="true" /></a></div>
-        <a href="environment-bicycle.html" className="hero-artwork"><img src="portfolio-bicycle.webp" alt="Bicycle — 자전거 프롭 모델링" width="1800" height="1013" fetchPriority="high" /><span>Bicycle <ArrowUpRight aria-hidden="true" /></span></a>
+      <div className="hero-heading">
+        <div className="hero-kicker"><p>심영환 <span className="text-muted-foreground">/ SHIM</span></p><p>Environment Art<br />& Technical Art</p></div>
+        <BlurFade><h1 className="hero-name" id="home-title" translate="no">YOUNGHWAN</h1></BlurFade>
+      </div>
+      <div id="about" className="home-profile">
+        <section aria-labelledby="skills-title">
+          <h2 id="skills-title">스킬</h2>
+          <dl className="skill-list">
+            <div><dt>테크니컬 아트</dt><dd>Unity · C# · ShaderLab · HLSL</dd></div>
+            <div><dt>모델링 · 텍스처링</dt><dd>Blender · Substance (Painter, Designer)<br />Photoshop</dd></div>
+          </dl>
+        </section>
+        <section aria-labelledby="experience-title">
+          <h2 id="experience-title">이력</h2>
+          <dl className="experience">
+            <div><dt>2025</dt><dd><strong>민트로켓</strong><span>데이브 더 다이버 · TA 인턴</span></dd></div>
+            <div><dt>2024</dt><dd><strong>MINOC · 프리랜서</strong><span>제품 모델링 · 영상 제작</span></dd></div>
+            <div><dt>2021–2023</dt><dd><strong>공군 교수학습혁신센터</strong><span>3차원모델링 제작병 복무<br />3D/VR 훈련 콘텐츠 제작</span></dd></div>
+          </dl>
+        </section>
+        <section aria-labelledby="education-title">
+          <h2 id="education-title">학력</h2>
+          <div className="education"><p className="meta">2026 · 학사</p><h3>부산대학교</h3><p>정보컴퓨터공학부</p></div>
+        </section>
       </div>
     </section>
     <section id="work" className="discipline-section" aria-label="포트폴리오 분야">
       <a href="environment.html" className="discipline-link"><div><h2>ENVIRONMENT<br />ART</h2><ArrowUpRight aria-hidden="true" /></div><span className="discipline-label">배경 모델링</span></a>
       <a href="technical-art.html" className="discipline-link inverse"><div><h2>TECHNICAL<br />ART</h2><ArrowUpRight aria-hidden="true" /></div><span className="discipline-label">테크니컬 아트</span></a>
-    </section>
-    <section id="about" className="about-panel panel inverse" tabIndex={-1}>
-      <h2 className="display-title">ABOUT</h2>
-      <div className="about-grid"><p className="about-lead">게임의 배경과 프롭,<br />셰이더와 애니메이션을<br />만드는 심영환입니다.</p><div>
-        <dl className="experience">
-          <div><dt>2025</dt><dd><strong>민트로켓</strong><span>데이브 더 다이버 · TA 인턴</span></dd></div>
-          <div><dt>2024</dt><dd><strong>MINOC</strong><span>제품 모델링 · 영상 제작</span></dd></div>
-          <div><dt>2021–2023</dt><dd><strong>공군 교수학습혁신센터</strong><span>교육용 3D 에셋 제작</span></dd></div>
-        </dl>
-        <p className="tools-line">Blender · Substance 3D Painter · Unity<br />C# · HLSL · Photoshop</p>
-        <p className="education">부산대학교 정보컴퓨터공학부 학사 · 2026</p>
-      </div></div>
     </section>
   </>
 }
@@ -143,6 +139,31 @@ function MediaFigure({media, eager = false}: {media: Media; eager?: boolean}) {
 }
 
 function ProjectPage({project}: {project: Project}) {
+  const [activeSection, setActiveSection] = useState('')
+  useEffect(() => {
+    const sections = Array.from(document.querySelectorAll<HTMLElement>('.detail-section'))
+    let frame = 0
+    const update = () => {
+      const readingLine = Math.max((document.querySelector('.header-shell')?.getBoundingClientRect().bottom ?? 0) + 32, window.innerHeight * 0.3)
+      const current = sections.find(section => {
+        const { top, bottom } = section.getBoundingClientRect()
+        return top <= readingLine && bottom > readingLine
+      })
+      setActiveSection(current?.id ?? '')
+    }
+    const schedule = () => {
+      cancelAnimationFrame(frame)
+      frame = requestAnimationFrame(update)
+    }
+    schedule()
+    window.addEventListener('scroll', schedule, { passive: true })
+    window.addEventListener('resize', schedule)
+    return () => {
+      cancelAnimationFrame(frame)
+      window.removeEventListener('scroll', schedule)
+      window.removeEventListener('resize', schedule)
+    }
+  }, [project.slug])
   const technical = project.category === 'technical'
   const list = technical ? 'technical-art.html' : 'environment.html'
   const entries = technical ? content.technical : content.environment
@@ -150,12 +171,12 @@ function ProjectPage({project}: {project: Project}) {
   const next = currentIndex >= 0 ? entries[(currentIndex + 1) % entries.length] : null
   const meta = project.metadata.filter(item => !['TYPE', 'ASSET'].includes(item.label))
   return <>
-    <section className="project-heading panel"><a href={list} className="back-link"><ArrowLeft aria-hidden="true" />{technical ? 'Technical Art' : 'Environment Art'}</a><BlurFade><h1 translate="no">{project.title}</h1></BlurFade><div className="project-overview"><p>{project.summary}</p><dl className="project-meta">{meta.map(item => <div key={item.label}><dt>{({WORK:'작업',ROLE:'담당',TOOLS:'도구',STACK:'도구',PROJECT:'프로젝트',PERIOD:'기간'} as Record<string,string>)[item.label] || item.label}</dt><dd>{item.value}</dd></div>)}</dl></div></section>
+    <section className="project-heading panel"><a href={list} className="back-link"><ArrowLeft aria-hidden="true" />{technical ? 'Technical Art' : 'Environment Art'}</a><BlurFade><h1 translate="no">{project.title}</h1></BlurFade><div className="project-overview"><p>{project.summary}</p><dl className="project-meta">{meta.map(item => <div key={item.label}><dt>{({WORK:'작업',FOCUS:'작업',ROLE:'담당',TOOLS:'도구',STACK:'도구',PROJECT:'프로젝트',YEAR:'연도',PERIOD:'기간',DURATION:'기간',ORGANIZATION:'소속',CLIENT:'의뢰처',SUBJECTS:'대상',FORMAT:'구성',TECHNIQUES:'기법'} as Record<string,string>)[item.label] || item.label}</dt><dd>{item.value}</dd></div>)}</dl></div></section>
     <div className="project-cover">{project.cover.map(media => <MediaFigure key={media.src} media={media} eager />)}</div>
-    <div className="detail-layout"><nav className="project-rail" aria-label="프로젝트 목차"><span className="meta">{technical ? '연출 & 기능' : '제작 과정'}</span>{project.sections.map((section, index) => <a key={section.id} href={`#${section.id}`}><span className="section-number">{String(index + 1).padStart(2,'0')}</span>{section.title}</a>)}</nav><div>
+    <div className="detail-layout"><nav className="project-rail" aria-label="프로젝트 목차"><span className="meta">{technical ? '연출 & 기능' : '제작 과정'}</span>{project.sections.map((section, index) => <a key={section.id} href={`#${section.id}`} aria-current={activeSection === section.id ? 'location' : undefined}><span className="section-number">{String(index + 1).padStart(2,'0')}</span>{section.title}</a>)}</nav><div>
       {project.sections.map((section, index) => <section className="detail-section" id={section.id} key={section.id}><div className="section-title"><span className="meta">{String(index + 1).padStart(2,'0')}</span><h2>{section.title}</h2></div>
         {section.text.filter(text => !text.startsWith('왼쪽:')).map(text => <p className="section-copy" key={text}>{text}</p>)}
-        <div className={cn('media-grid', section.id === 'materials' && section.media.length > 1 && 'material-grid')}>{section.media.map(media => <MediaFigure key={media.src} media={media} />)}</div>
+        <div className={cn('media-grid', section.id === 'materials' && section.media.length > 1 && 'material-grid', project.slug === 'technical-diablackjack' && section.id === 'tool' && 'wood-collage')}>{section.media.map(media => <MediaFigure key={media.src} media={media} />)}</div>
       </section>)}
     </div></div>
     {next && <a href={`${next.slug}.html`} className="next-project panel"><span className="meta">다음 작업</span><span>{next.title}</span><ArrowUpRight aria-hidden="true" /></a>}
