@@ -3,7 +3,7 @@
     {
       "slug": "environment-bicycle",
       "title": "Bicycle",
-      "summary": "프레임과 구동계를 모델링하고 금속, 고무, 도장면의 재질을 표현한 자전거 프롭.",
+      "summary": "자전거 모델링 및 텍스처링 작업",
       "category": "environment",
       "metadata": [
         {
@@ -36,7 +36,7 @@
       "sections": [
         {
           "id": "form",
-          "title": "프레임과 구동계 모델링",
+          "title": "자전거 전체 모습",
           "label": "01 / Modeling",
           "text": [],
           "media": [
@@ -56,20 +56,12 @@
               "caption": "자전거 전체 메시 플로우",
               "width": 1800,
               "height": 882
-            },
-            {
-              "kind": "image",
-              "src": "portfolio-bicycle-pedal-flow.webp",
-              "alt": "페달과 크랭크, 중심축의 연결 구조",
-              "caption": "페달과 크랭크, 중심축의 연결 구조",
-              "width": 1800,
-              "height": 882
             }
           ]
         },
         {
           "id": "mesh-flow",
-          "title": "최종 렌더와 메시 플로우",
+          "title": "텍스처 디테일과 와이어프레임",
           "label": "02 / Mesh Flow",
           "text": [
             "왼쪽: 최종 렌더 / 오른쪽: 같은 구도의 메시 플로우"
@@ -114,15 +106,15 @@
               "caption": "핸들과 포크, 앞바퀴",
               "width": 3200,
               "height": 1600
-            }
-          ]
-        },
-        {
-          "id": "materials",
-          "title": "금속, 고무, 도장면의 재질",
-          "label": "03 / Materials & UV",
-          "text": [],
-          "media": [
+            },
+            {
+              "kind": "image",
+              "src": "portfolio-bicycle-pedal-flow.webp",
+              "alt": "페달과 크랭크, 중심축의 연결 구조",
+              "caption": "페달과 크랭크, 중심축의 연결 구조",
+              "width": 1800,
+              "height": 882
+            },
             {
               "kind": "image",
               "src": "portfolio-bicycle-detail.webp",
@@ -130,7 +122,15 @@
               "caption": "핸들, 프레임, 앞바퀴의 재질 디테일",
               "width": 1600,
               "height": 1000
-            },
+            }
+          ]
+        },
+        {
+          "id": "materials",
+          "title": "UV 매핑과 텍스처링",
+          "label": "03 / Materials & UV",
+          "text": [],
+          "media": [
             {
               "kind": "image",
               "src": "portfolio-bicycle-color.webp",
@@ -171,7 +171,7 @@
     {
       "slug": "environment-boots",
       "title": "Boots",
-      "summary": "끈과 밑창의 구조, 가죽 표면을 표현한 군화 프롭.",
+      "summary": "군화 모델링 및 텍스처링 작업",
       "category": "environment",
       "metadata": [
         {
@@ -180,7 +180,7 @@
         },
         {
           "label": "WORK",
-          "value": "모델링, 텍스처링"
+          "value": "모델링, UV, 텍스처링, 렌더링"
         },
         {
           "label": "TOOLS",
@@ -204,7 +204,7 @@
       "sections": [
         {
           "id": "form",
-          "title": "군화의 실루엣과 끈 구조",
+          "title": "군화 렌더링",
           "label": "01 / Modeling",
           "text": [],
           "media": [
@@ -229,7 +229,7 @@
         },
         {
           "id": "mesh-flow",
-          "title": "메시 플로우",
+          "title": "와이어프레임",
           "label": "02 / Mesh Flow",
           "text": [],
           "media": [
@@ -245,7 +245,7 @@
         },
         {
           "id": "materials",
-          "title": "가죽과 밑창의 재질",
+          "title": "UV 매핑과 텍스처링",
           "label": "03 / Materials & UV",
           "text": [],
           "media": [
@@ -280,7 +280,7 @@
           "title": "담당 작업",
           "label": "ROLE & CREDITS",
           "text": [
-            "모델링, 텍스처링, 렌더링"
+            "모델링, UV, 텍스처링, 렌더링"
           ],
           "media": []
         }
@@ -289,7 +289,7 @@
     {
       "slug": "environment-cap",
       "title": "Cap",
-      "summary": "곡면과 봉제선, 천 재질을 표현한 모자 프롭.",
+      "summary": "모자 모델링, 서브스턴스 페인터를 활용한 텍스처 표현",
       "category": "environment",
       "metadata": [
         {
@@ -298,7 +298,7 @@
         },
         {
           "label": "WORK",
-          "value": "모델링, 텍스처링"
+          "value": "모델링, UV, 텍스처링, 렌더링"
         },
         {
           "label": "TOOLS",
@@ -322,7 +322,7 @@
       "sections": [
         {
           "id": "form",
-          "title": "모자의 곡면과 챙",
+          "title": "모자 렌더링",
           "label": "01 / Modeling",
           "text": [],
           "media": [
@@ -339,7 +339,7 @@
         },
         {
           "id": "mesh-flow",
-          "title": "메시 플로우",
+          "title": "와이어프레임",
           "label": "02 / Mesh Flow",
           "text": [],
           "media": [
@@ -355,7 +355,7 @@
         },
         {
           "id": "materials",
-          "title": "천과 자수의 재질",
+          "title": "UV 매핑과 텍스처링",
           "label": "03 / Materials & UV",
           "text": [],
           "media": [
@@ -398,7 +398,7 @@
           "title": "담당 작업",
           "label": "ROLE & CREDITS",
           "text": [
-            "모델링, 텍스처링, 렌더링"
+            "모델링, UV, 텍스처링, 렌더링"
           ],
           "media": []
         }
@@ -407,7 +407,7 @@
     {
       "slug": "environment-container",
       "title": "Container",
-      "summary": "반복 패널과 도장면의 사용감을 표현한 컨테이너 프롭.",
+      "summary": "컨테이너 모델링과 텍스처링 작업",
       "category": "environment",
       "metadata": [
         {
@@ -416,7 +416,7 @@
         },
         {
           "label": "WORK",
-          "value": "모델링, 텍스처링"
+          "value": "모델링, UV, 텍스처링, 렌더링"
         },
         {
           "label": "TOOLS",
@@ -440,7 +440,7 @@
       "sections": [
         {
           "id": "form",
-          "title": "컨테이너의 패널과 프레임",
+          "title": "컨테이너 렌더링",
           "label": "01 / Modeling",
           "text": [
             "왼쪽: 재질 렌더 / 오른쪽: 같은 구도의 메시 플로우"
@@ -483,7 +483,7 @@
         },
         {
           "id": "materials",
-          "title": "도장면과 표면 사용감",
+          "title": "UV 매핑과 텍스처링",
           "label": "02 / Materials & UV",
           "text": [],
           "media": [
@@ -518,7 +518,7 @@
           "title": "담당 작업",
           "label": "ROLE & CREDITS",
           "text": [
-            "모델링, 텍스처링, 렌더링"
+            "모델링, UV, 텍스처링, 렌더링"
           ],
           "media": []
         }
@@ -642,7 +642,7 @@
     {
       "slug": "environment-minoc",
       "title": "MINOC",
-      "summary": "제품 사진을 바탕으로 시계의 외형과 작동을 재현한 3D 제품 영상.",
+      "summary": "시계 홍보 영상 제작 프리랜서 작업",
       "category": "environment",
       "metadata": [
         {
@@ -675,7 +675,7 @@
       "sections": [
         {
           "id": "film",
-          "title": "제품의 형태와 움직임",
+          "title": "홍보 영상",
           "label": "01 / Product film",
           "text": [],
           "media": [
@@ -692,27 +692,10 @@
         },
         {
           "id": "model",
-          "title": "제품 사진 기반 모델링",
+          "title": "렌더링과 와이어프레임",
           "label": "02 / Modeling",
           "text": [
-            "제품 사진을 바탕으로 시계의 외형과 내부 부품을 모델링했습니다."
-          ],
-          "media": [
-            {
-              "kind": "image",
-              "src": "portfolio-watch-wire.webp",
-              "alt": "시계 모델의 와이어프레임",
-              "caption": "시계 모델의 와이어프레임",
-              "width": 1800,
-              "height": 1013
-            }
-          ]
-        },
-        {
-          "id": "motion",
-          "title": "Blender Driver를 활용한 애니메이션",
-          "label": "03 / Drivers & animation",
-          "text": [
+            "제품 사진을 바탕으로 시계의 외형과 내부 부품을 모델링했습니다.",
             "Blender Driver로 시곗바늘과 뒷면 부품의 움직임을 구현했습니다."
           ],
           "media": [
@@ -731,6 +714,14 @@
               "caption": "최종 재질을 적용한 시계",
               "width": 1152,
               "height": 648
+            },
+            {
+              "kind": "image",
+              "src": "portfolio-watch-wire.webp",
+              "alt": "시계 모델의 와이어프레임",
+              "caption": "시계 모델의 와이어프레임",
+              "width": 1800,
+              "height": 1013
             }
           ]
         },
@@ -1232,12 +1223,12 @@
     {
       "slug": "technical-dave",
       "title": "데이브 더 다이버",
-      "summary": "TA 인턴으로 담당한 곤충 배틀 애니메이션, 던전 무드 연구, 지형 마스킹과 상호작용 에셋 제작.",
+      "summary": "#IN THE JUNGLE DLC #TA 인턴",
       "category": "technical",
       "metadata": [
         {
           "label": "ORGANIZATION",
-          "value": "민트로켓, 데이브더다이버실"
+          "value": "민트로켓 · 데이브더다이버실"
         },
         {
           "label": "PERIOD",
@@ -1245,11 +1236,11 @@
         },
         {
           "label": "ROLE",
-          "value": "TA 인턴"
+          "value": "곤충 배틀 애니메이션, 던전 조명·분위기 연구, 지형 상단 마스킹 셰이더, 상호작용 오브젝트 제작"
         },
         {
           "label": "TOOLS",
-          "value": "Unity, Blender, 3ds Max, Photoshop, HLSL"
+          "value": "Unity, C#, HLSL, Blender, 3ds Max, Photoshop, Git, Confluence"
         }
       ],
       "cover": [
@@ -1257,7 +1248,7 @@
           "kind": "image",
           "src": "portfolio-p12-2.webp",
           "alt": "지하 던전 인게임 화면",
-          "caption": "지하 던전 인게임 화면",
+          "caption": "지하 던전 게임 화면 · 팀 공동 작업. 게임과 이미지의 권리는 각 권리자에게 있습니다.",
           "width": 768,
           "height": 432
         }
@@ -1268,14 +1259,14 @@
           "title": "곤충 배틀 애니메이션",
           "label": "01 / Insect animation",
           "text": [
-            "곤충별 배틀 애니메이션을 제작하고 Unity Animator와 트리거를 구성했습니다."
+            "3ds Max에서 곤충별 전투 동작을 만들었습니다. Unity에서는 곤충의 종류와 크기에 맞춰 모델에 콜라이더를 배치하고, 두 곤충의 콜라이더가 겹칠 때 전투 동작이 재생되도록 애니메이터를 설정했습니다."
           ],
           "media": [
             {
               "kind": "video",
               "src": "portfolio-dave-insects.mp4",
-              "alt": "담당한 곤충 배틀 애니메이션 (12초, 무음)",
-              "caption": "담당한 곤충 배틀 애니메이션 (12초, 무음)",
+              "alt": "곤충 두 마리가 대결하는 게임 화면",
+              "caption": "곤충 배틀 · 12초",
               "width": 1280,
               "height": 720,
               "poster": "portfolio-dave-insects.webp"
@@ -1284,17 +1275,17 @@
         },
         {
           "id": "dungeon",
-          "title": "던전 무드와 지형 마스킹",
+          "title": "던전 분위기와 지형 마스킹",
           "label": "02 / Dungeon R&D",
           "text": [
-            "지하 던전의 무드를 연구하고 지형 마스킹 셰이더를 제작했습니다."
+            "여러 JRPG의 조명 연출을 참고해 지하 던전의 분위기를 연구했습니다. 지형 상단을 마스킹하는 셰이더도 제작했습니다."
           ],
           "media": [
             {
               "kind": "image",
               "src": "portfolio-p12-3.webp",
-              "alt": "지형 마스킹 적용 화면",
-              "caption": "지형 마스킹 적용 화면",
+              "alt": "지형 상단에 마스킹 셰이더를 적용한 지하 던전",
+              "caption": "지형 상단 마스킹",
               "width": 768,
               "height": 432
             },
@@ -1313,14 +1304,14 @@
           "title": "상호작용 오브젝트 제작",
           "label": "03 / Interactive assets",
           "text": [
-            "문, 레버, 엘리베이터, 보물상자의 모델링과 임시 텍스처링, 애니메이션을 담당했습니다."
+            "던전의 문, 레버, 엘리베이터, 보물상자를 모델링하고 각각의 애니메이션과 임시 텍스처를 만들었습니다."
           ],
           "media": [
             {
               "kind": "image",
               "src": "portfolio-p12-5.webp",
-              "alt": "문과 상호작용 오브젝트가 포함된 장면",
-              "caption": "문과 상호작용 오브젝트가 포함된 장면",
+              "alt": "캐릭터가 지하 던전의 문을 마주 보고 있는 장면",
+              "caption": "지하 던전의 문",
               "width": 438,
               "height": 287
             },
@@ -1333,94 +1324,111 @@
               "height": 383
             }
           ]
-        },
-        {
-          "id": "credits",
-          "title": "담당 작업",
-          "label": "ROLE & CREDITS",
-          "text": [
-            "TA 인턴으로 애니메이션, 던전 무드 연구, 셰이더와 에셋 제작을 담당했습니다. 텍스처는 임시 작업이며, 인게임 화면은 팀 공동 작업입니다. 게임과 이미지의 권리는 해당 권리자에게 있습니다."
-          ],
-          "media": []
         }
       ]
     },
     {
       "slug": "technical-diablackjack",
       "title": "DiaBlackJack",
-      "summary": "시드 기반 3D 지도 생성, 나무판 캐릭터 제작 도구와 카드별 전투 연출.",
+      "summary": "#3인 개발 #블랙잭 #덱빌딩 로그라이크",
       "category": "technical",
       "metadata": [
         {
-          "label": "PROJECT",
-          "value": "블랙잭 기반 덱빌딩 로그라이크, 3인 팀"
-        },
-        {
           "label": "PERIOD",
-          "value": "2026.07 시작"
+          "value": "2026.07~ 개발 중"
         },
         {
           "label": "ROLE",
-          "value": "지도, 전투 연출, 셰이더, 에셋, 도감 UI"
+          "value": "3D 지도 절차 생성, 나무판 메시 제작 도구, 셰이더, 3D 에셋, 전투 연출, 도감 UI"
         },
         {
           "label": "STACK",
-          "value": "Unity, Blender, HLSL, Codex"
+          "value": "Unity, C#, HLSL, Blender, Photoshop, Substance 3D Painter, Codex, Git"
+        },
+        {
+          "label": "대회 성과",
+          "value": "NHN GAME AI HACKATHON 2026 본선 진출 (사전 과제 작품)"
         }
       ],
       "cover": [
         {
-          "kind": "image",
-          "src": "portfolio-p03-0.webp",
-          "alt": "DiaBlackJack 전투 화면",
-          "caption": "DiaBlackJack 전투 화면",
-          "width": 960,
-          "height": 540
+          "kind": "video",
+          "src": "portfolio-diablackjack-en.mp4",
+          "alt": "DiaBlackJack 영어 소개 영상",
+          "caption": "플레이와 연출 · 영어 소개 영상",
+          "width": 1920,
+          "height": 1080,
+          "poster": "portfolio-diablackjack-en.webp"
         }
       ],
       "sections": [
         {
-          "id": "demo",
-          "title": "플레이와 연출",
-          "label": "PROJECT FILM",
-          "text": [],
-          "media": [
-            {
-              "kind": "video",
-              "src": "portfolio-diablackjack-en.mp4",
-              "alt": "DiaBlackJack 영어 소개 영상",
-              "caption": "DiaBlackJack 게임플레이 소개",
-              "width": 1920,
-              "height": 1080,
-              "poster": "portfolio-diablackjack-en.webp"
-            }
-          ]
-        },
-        {
           "id": "map",
           "title": "3D 지도 절차 생성",
           "label": "01 / Procedural map",
-          "text": [
-            "진행 경로를 따라 지형과 건물을 배치하는 3D 지도를 구현했습니다. 같은 시드에서 동일한 지도를 생성합니다."
-          ],
-          "media": [
+          "text": [],
+          "media": [],
+          "parts": [
             {
-              "kind": "video",
-              "src": "portfolio-dbj-map-themes.mp4",
-              "alt": "다섯 테마의 3D 지도가 펼쳐지고 접히는 게임 화면",
-              "caption": "협곡 · 카지노 · 교단 마을 · 노동 수용소 · 서부 마을",
-              "width": 2560,
-              "height": 1440,
-              "poster": "portfolio-dbj-map-themes.webp"
+              "id": "ai",
+              "title": "테마별 건물 제작",
+              "text": [
+                "AI로 노역장의 건물 콘셉트 시트를 만들었습니다. 이를 참고해 Codex와 Blender MCP로 광산 입구와 감시탑 모델을 생성하고, 형태를 직접 다듬어 Unity로 옮겼습니다."
+              ],
+              "media": [
+                {
+                  "kind": "image",
+                  "src": "portfolio-p04-1.webp",
+                  "alt": "AI로 생성한 건물 형태 콘셉트 시트",
+                  "caption": "AI로 생성한 건물 형태 콘셉트 시트",
+                  "width": 615,
+                  "height": 410
+                },
+                {
+                  "kind": "image",
+                  "src": "portfolio-p04-2.webp",
+                  "alt": "광산 입구와 감시탑 등 노역장 시설을 하나씩 분리해 놓은 로우폴리 모델",
+                  "caption": "노역장 건물 모델",
+                  "width": 600,
+                  "height": 360
+                },
+                {
+                  "kind": "image",
+                  "src": "portfolio-p06-4.webp",
+                  "alt": "점선으로 이어진 이동 경로 주변에 광산 시설이 배치된 노역장 지도",
+                  "caption": "게임에 적용한 노역장 지도",
+                  "width": 768,
+                  "height": 432
+                }
+              ]
+            },
+            {
+              "id": "paths",
+              "title": "지도 애니메이션과 경로 생성",
+              "text": [
+                "Blender에서 지도를 모델링하고 리깅했습니다. 지도가 펼쳐지고 접히는 애니메이션을 만들어 모델과 함께 Unity로 옮겼습니다.",
+                "Unity에서는 게임 진행 그래프의 각 지점을 스플라인으로 이어 이동 경로를 그렸습니다. 이동 경로는 비워 두고 나머지 공간에 테마별 지형과 건물을 절차적으로 배치했습니다."
+              ],
+              "media": [
+                {
+                  "kind": "video",
+                  "src": "portfolio-dbj-map-themes.mp4",
+                  "alt": "다섯 테마의 3D 지도가 펼쳐지고 접히는 게임 화면",
+                  "caption": "협곡 · 카지노 · 교단 마을 · 노동 수용소 · 서부 마을",
+                  "width": 2560,
+                  "height": 1440,
+                  "poster": "portfolio-dbj-map-themes.webp"
+                }
+              ]
             }
           ]
         },
         {
           "id": "tool",
-          "title": "나무판 메시와 셰이더",
+          "title": "나무판 캐릭터 제작 도구와 셰이더",
           "label": "02 / MESH & SHADER",
           "text": [
-            "스프라이트 윤곽으로 나무판 메시를 만들고, 앞면의 페인트와 옆면의 나무 단면을 표현했습니다."
+            "스프라이트의 알파 윤곽을 추출해 단순화하고, 삼각형 면에 두께를 더하는 메시 생성 도구를 만들었습니다. 셰이더로 앞면에는 캐릭터 페인트를, 옆면에는 나무 단면을 표현했습니다."
           ],
           "media": [
             {
@@ -1460,9 +1468,11 @@
         },
         {
           "id": "combat",
-          "title": "게임 연출",
+          "title": "카드 효과와 전투 연출",
           "label": "03 / GAME DIRECTION",
-          "text": [],
+          "text": [
+            "팀원이 만든 전투 코어에 카드 연출을 연결했습니다. 리볼버와 칼이 상대에게 적중하는 순간에 카메라 움직임, 피격 반응, 효과음을 맞췄습니다. 수정구슬은 덱의 카드를 미리 보고 고르는 과정을 보여줍니다."
+          ],
           "media": [
             {
               "kind": "video",
@@ -1474,48 +1484,26 @@
               "poster": "portfolio-dbj-game-direction.webp"
             }
           ]
-        },
-        {
-          "id": "ai",
-          "title": "AI 활용 제작 과정",
-          "label": "04 / AI-assisted workflow",
-          "text": [
-            "Codex 스킬을 작성해 기획과 구현에 활용했습니다. 콘셉트 생성과 Blender 에셋 제작에도 AI를 사용했습니다."
-          ],
-          "media": []
-        },
-        {
-          "id": "credits",
-          "title": "담당 작업",
-          "label": "ROLE & CREDITS",
-          "text": [
-            "지도 생성, 전투 연출, 제작 도구, 셰이더, 3D 에셋, 도감 UI를 담당했습니다. 진행 그래프와 전투 코어는 팀원 작업입니다."
-          ],
-          "media": []
         }
       ]
     },
     {
       "slug": "technical-maggi",
       "title": "MAGGI",
-      "summary": "자성 능력을 표현하는 굴절 셰이더, 픽셀 얼굴 애니메이션과 기계팔 리깅.",
+      "summary": "#팀 프로젝트 #3D 공포 퍼즐 어드벤처",
       "category": "technical",
       "metadata": [
-        {
-          "label": "PROJECT",
-          "value": "3D 공포 어드벤처 퍼즐 게임"
-        },
         {
           "label": "PERIOD",
           "value": "2024~2025"
         },
         {
           "label": "ROLE",
-          "value": "Unity 그래픽 구현, 애니메이션"
+          "value": "셰이더, 3D 모델링과 텍스처링, 리깅과 애니메이션"
         },
         {
           "label": "TOOLS",
-          "value": "Unity, Blender, 커스텀 셰이더"
+          "value": "Unity, Blender, Substance 3D Painter"
         }
       ],
       "cover": [
@@ -1531,17 +1519,17 @@
       "sections": [
         {
           "id": "magnet",
-          "title": "인력과 척력 자성 이펙트",
+          "title": "인력과 척력 이펙트",
           "label": "01 / Refraction",
           "text": [
-            "자성 능력을 사용할 때 주변 공간이 일그러지는 굴절 셰이더를 제작했습니다."
+            "마기가 자석의 힘으로 물체를 끌어당기거나 밀어낼 때 주변 공간이 일그러져 보이도록 굴절 셰이더를 만들었습니다."
           ],
           "media": [
             {
               "kind": "image",
               "src": "portfolio-p15-0.webp",
               "alt": "인력과 척력의 자성 이펙트",
-              "caption": "인력과 척력의 자성 이펙트",
+              "caption": "자성 능력을 사용할 때의 화면 굴절",
               "width": 512,
               "height": 512
             }
@@ -1552,7 +1540,7 @@
           "title": "픽셀 얼굴 애니메이션",
           "label": "02 / Pixel animation",
           "text": [
-            "텍스처를 픽셀화하는 셰이더로 캐릭터의 표정 애니메이션을 구현했습니다."
+            "얼굴 텍스처 세트를 픽셀로 표현하는 셰이더를 만들어 캐릭터의 표정을 애니메이션으로 구현했습니다."
           ],
           "media": [
             {
@@ -1575,10 +1563,10 @@
         },
         {
           "id": "rig",
-          "title": "기계팔 리깅",
+          "title": "보스 기계팔 리깅",
           "label": "03 / Rigging",
           "text": [
-            "기계팔의 굽힘 방향과 복귀 자세를 제어하는 리깅을 제작하고 Unity에 적용했습니다."
+            "보스의 기계팔이 반대로 꺾이거나 뻗었다 돌아올 때 자세가 흐트러지는 문제가 있었습니다. Blender에서 기본 동작을 만들고, Unity에서는 플레이어에게 반응할 때 관절이 굽는 방향과 팔이 돌아오는 자세를 제어했습니다."
           ],
           "media": [
             {
@@ -1600,37 +1588,63 @@
           ]
         },
         {
-          "id": "credits",
-          "title": "담당 작업",
-          "label": "ROLE & CREDITS",
+          "id": "materials",
+          "title": "배경 에셋 제작",
+          "label": "04 / Environment assets",
           "text": [
-            "팀 프로젝트에서 자성 이펙트, 픽셀 얼굴 셰이더와 기계팔 리깅, 애니메이션을 담당했습니다."
+            "Blender에서 배관을 모델링하고 UV를 펼친 뒤 Substance 3D Painter에서 금속 표면을 텍스처링했습니다. Unity에서는 직접 만든 셰이더로 머티리얼을 구성하고 배관을 프리팹으로 만들었습니다."
           ],
-          "media": []
+          "media": [
+            {
+              "kind": "image",
+              "src": "portfolio-p14-0.webp",
+              "alt": "Blender에서 배관 부품의 메시와 입체 형태를 비교한 화면",
+              "caption": "배관 모델링",
+              "width": 635,
+              "height": 395
+            },
+            {
+              "kind": "image",
+              "src": "portfolio-p14-1.webp",
+              "alt": "금속 텍스처를 입힌 배관 부품과 펼친 텍스처",
+              "caption": "배관 텍스처",
+              "width": 706,
+              "height": 405
+            }
+          ]
         }
       ]
     },
     {
       "slug": "technical-project",
       "title": "Break Shoot",
-      "summary": "당구공의 숫자 표시와 능력별 재질, 스티커 제거 연출을 구현한 TA 작업.",
+      "summary": "#5인 개발 #당구 로그라이트",
+      "steam": {
+        "url": "https://store.steampowered.com/app/4164140/Break_Shoot/",
+        "appId": 4164140,
+        "snapshot": { "percent": 99, "count": 122, "date": "2026.11.09" }
+      },
       "category": "technical",
       "metadata": [
         {
-          "label": "PROJECT",
-          "value": "당구 로그라이크, 5인 팀"
-        },
-        {
           "label": "PERIOD",
-          "value": "2025.07~2026.04 (정식 출시)"
+          "value": "2025.07~2026.04 (스팀 출시) · 모바일, 스위치 버전 출시 준비 중"
         },
         {
           "label": "ROLE",
-          "value": "셰이더, 3D 에셋, 애니메이션, 이펙트"
+          "value": "셰이더, 3D 에셋, 애니메이션, 이펙트, 카드와 도감 구조 구현, 모바일 최적화"
         },
         {
           "label": "STACK",
-          "value": "Unity, HLSL, Blender, DOTween"
+          "value": "Unity, C#, HLSL, Blender, Photoshop, Substance 3D Painter, Git"
+        },
+        {
+          "label": "수상",
+          "value": "2026 BUILD 051 딥 블루상(일반부 1위) · 2025 넥슨 게임잼 ‘재밌넥’ 대상"
+        },
+        {
+          "label": "전시",
+          "value": "2026 BIC Fest · 2026 BUILD 051 · 2025 G-Star 스팀 인디 쇼케이스"
         }
       ],
       "cover": [
@@ -1646,46 +1660,53 @@
       ],
       "sections": [
         {
-          "id": "numbers",
-          "title": "공 숫자 표시",
-          "label": "01 / Render texture",
-          "text": [
-            "하나의 Render Texture로 공의 숫자를 표시하고, 숫자가 바뀔 때만 갱신하도록 구현했습니다."
-          ],
-          "media": [
+          "id": "ball-shader",
+          "title": "당구공 셰이더 개발",
+          "label": "01 / Ball shader",
+          "text": [],
+          "media": [],
+          "parts": [
             {
-              "kind": "image",
-              "src": "portfolio-p10-1.webp",
-              "alt": "숫자를 모아 렌더링하는 카메라 구성",
-              "caption": "숫자를 모아 렌더링하는 카메라 구성",
-              "width": 446,
-              "height": 279
+              "id": "numbers",
+              "title": "공 레벨 표시",
+              "text": [
+                "하나의 Render Texture로 모든 공의 레벨 숫자를 표시했습니다. 숫자가 바뀔 때만 텍스처를 갱신해 렌더링 비용을 줄였습니다."
+              ],
+              "media": [
+                {
+                  "kind": "image",
+                  "src": "portfolio-p10-1.webp",
+                  "alt": "숫자를 모아 렌더링하는 카메라 구성",
+                  "caption": "숫자를 모아 렌더링하는 카메라 구성",
+                  "width": 446,
+                  "height": 279
+                },
+                {
+                  "kind": "image",
+                  "src": "portfolio-p10-0.webp",
+                  "alt": "공 표면에 표시된 숫자",
+                  "caption": "공 표면에 표시된 숫자",
+                  "width": 372,
+                  "height": 217
+                }
+              ]
             },
             {
-              "kind": "image",
-              "src": "portfolio-p10-0.webp",
-              "alt": "공 표면에 표시된 숫자",
-              "caption": "공 표면에 표시된 숫자",
-              "width": 372,
-              "height": 217
-            }
-          ]
-        },
-        {
-          "id": "shader",
-          "title": "능력별 공 재질",
-          "label": "02 / Uber shader",
-          "text": [
-            "능력별 공 재질 21종을 하나의 우버 셰이더로 구현했습니다."
-          ],
-          "media": [
-            {
-              "kind": "image",
-              "src": "portfolio-p10-2.webp",
-              "alt": "능력별 재질의 일부 예시",
-              "caption": "능력별 재질의 일부 예시",
-              "width": 768,
-              "height": 432
+              "id": "shader",
+              "title": "능력별 공 재질 구현",
+              "text": [
+                "능력과 초월 단계에 따른 21종의 공 재질을 하나의 Uber Shader로 구현했습니다. 셰이더 키워드로 필요한 연산만 포함하고, 키워드 조합별 Shader Variant를 미리 컴파일해 사용했습니다. 새 재질도 같은 셰이더에서 추가하고 관리할 수 있습니다."
+              ],
+              "media": [
+                {
+                  "kind": "image",
+                  "src": "portfolio-p10-2.webp",
+                  "alt": "능력별 재질의 일부 예시",
+                  "caption": "능력별 재질의 일부 예시",
+                  "width": 768,
+                  "height": 432
+                }
+              ]
             }
           ]
         },
@@ -1694,7 +1715,7 @@
           "title": "스티커 제거 연출",
           "label": "03 / Sticker animation",
           "text": [
-            "DOTween과 마스크를 활용해 스티커가 종이처럼 말리며 떨어지는 연출을 구현했습니다."
+            "스티커가 표면에서 떼어지는 모습을 전용 셰이더로 구현하고, DOTween으로 애니메이션을 제어했습니다."
           ],
           "media": [
             {
@@ -1715,25 +1736,8 @@
               "height": 1440,
               "poster": "portfolio-sticker-ingame-three.webp"
             }
-          ]
-        },
-        {
-          "id": "recognition",
-          "title": "수상 및 전시",
-          "label": "04 / Recognition",
-          "text": [
-            "2025 넥슨 게임잼 ‘재밌넥’ 대상, 2026 BUILD 051 딥 블루상(일반부 1등)을 수상했습니다. 2025 G-Star 스팀 인디 쇼케이스, 2026 BUILD 051, 2026 BIC Fest에 전시했습니다."
           ],
-          "media": []
-        },
-        {
-          "id": "credits",
-          "title": "담당 작업",
-          "label": "ROLE & CREDITS",
-          "text": [
-            "5인 팀에서 셰이더, 포스트프로세싱, 3D 에셋, 애니메이션과 이펙트를 담당했습니다. 수상 및 전시는 팀 공동 성과입니다."
-          ],
-          "media": []
+          "number": "03"
         }
       ]
     },
@@ -1858,49 +1862,42 @@
       "slug": "environment-bicycle",
       "title": "Bicycle",
       "image": "portfolio-bicycle.webp",
-      "category": "PROP / MODELING & TEXTURING",
-      "summary": "프레임과 구동계의 구조, 금속과 고무의 재질 표현."
+      "category": "Prop study",
+      "summary": "자전거 모델링 및 텍스처링 작업"
     },
     {
       "slug": "environment-container",
       "title": "Container",
       "image": "portfolio-container-render-polished.webp",
-      "category": "PROP / MODELING & TEXTURING",
-      "summary": "반복 패널과 도장면의 사용감을 표현한 컨테이너 프롭."
+      "category": "Prop study",
+      "summary": "컨테이너 모델링과 텍스처링 작업"
     },
     {
       "slug": "environment-boots",
       "title": "Boots",
       "image": "portfolio-boot-render-hq.webp",
-      "category": "PROP / MODELING & TEXTURING",
-      "summary": "끈과 밑창의 구조, 가죽 표면을 표현한 군화 프롭."
+      "category": "Prop study",
+      "summary": "군화 모델링 및 텍스처링 작업"
     },
     {
       "slug": "environment-cap",
       "title": "Cap",
       "image": "portfolio-cap-render-hq.webp",
-      "category": "PROP / MODELING & TEXTURING",
-      "summary": "곡면과 봉제선, 천 재질을 표현한 모자 프롭."
+      "category": "Prop study",
+      "summary": "모자 모델링, 서브스턴스 페인터를 활용한 텍스처 표현"
     },
     {
       "slug": "environment-minoc",
-      "title": "STAR LIGHT AUTOMATIC",
+      "title": "MINOC",
       "image": "portfolio-watch.webp",
-      "category": "COMMERCIAL / MINOC",
-      "summary": "제품 사진을 바탕으로 제작한 시계 모델과 영상."
-    },
-    {
-      "slug": "environment-pathfinder",
-      "title": "Pathfinder",
-      "image": "portfolio-robot.webp",
-      "category": "PERSONAL / ROBOT",
-      "summary": "바퀴형 로봇 모델링과 Unreal Engine 애니메이션."
+      "category": "Product film",
+      "summary": "시계 홍보 영상 제작 프리랜서 작업"
     },
     {
       "slug": "environment-training",
       "title": "교육용 3D 에셋",
       "image": "portfolio-p20-2.webp",
-      "category": "PRODUCTION / TRAINING ASSETS",
+      "category": "Production",
       "summary": "대검과 항공기 부품의 모델링 및 텍스처링."
     }
   ],
@@ -1910,70 +1907,24 @@
       "slug": "technical-project",
       "title": "Break Shoot",
       "image": "portfolio-breakshoot.webp",
-      "role": "셰이더, 포스트프로세싱, 3D 에셋, 애니메이션, 이펙트",
-      "summary": "당구에 로그라이크 성장 요소를 결합한 게임입니다.",
-      "features": [
-        {
-          "href": "technical-project.html#numbers",
-          "title": "공 숫자 표시"
-        },
-        {
-          "href": "technical-project.html#shader",
-          "title": "능력별 공 재질"
-        },
-        {
-          "href": "technical-project.html#stickers",
-          "title": "스티커 제거 연출"
-        }
-      ]
+      "role": "셰이더, 3D 에셋, 애니메이션, 이펙트, 카드와 도감 구조 구현, 모바일 최적화",
+      "summary": "당구와 로그라이트를 결합한 게임"
     },
     {
       "id": "diablackjack",
       "slug": "technical-diablackjack",
       "title": "DiaBlackJack",
       "image": "portfolio-p03-0.webp",
-      "role": "지도, 전투 연출, 셰이더, 3D 에셋, 도감 UI",
-      "summary": "블랙잭 기반 덱빌딩 로그라이크입니다.",
-      "features": [
-        {
-          "href": "technical-diablackjack.html#map",
-          "title": "3D 지도 절차 생성"
-        },
-        {
-          "href": "technical-diablackjack.html#tool",
-          "title": "나무판 메시와 셰이더"
-        },
-        {
-          "href": "technical-diablackjack.html#combat",
-          "title": "게임 연출"
-        },
-        {
-          "href": "technical-diablackjack.html#ai",
-          "title": "AI 활용 제작 과정"
-        }
-      ]
+      "role": "3D 지도 절차 생성, 나무판 메시 제작 도구, 셰이더, 3D 에셋, 전투 연출, 도감 UI",
+      "summary": "블랙잭에서 카드 효과로 손패와 상대 행동을 바꾸며 보스에 도전하는 덱빌딩 로그라이크"
     },
     {
       "id": "dave",
       "slug": "technical-dave",
       "title": "데이브 더 다이버",
       "image": "portfolio-p12-2.webp",
-      "role": "곤충 애니메이션, 무드 R&D, 지형 마스킹, 배경 에셋",
-      "summary": "인 더 정글 DLC에 TA 인턴으로 참여했습니다.",
-      "features": [
-        {
-          "href": "technical-dave.html#insects",
-          "title": "곤충 배틀 애니메이션"
-        },
-        {
-          "href": "technical-dave.html#dungeon",
-          "title": "던전 무드와 지형 마스킹"
-        },
-        {
-          "href": "technical-dave.html#interactive",
-          "title": "상호작용 오브젝트"
-        }
-      ]
+      "role": "애니메이션, 셰이더, 배경 모델링",
+      "summary": "‘IN THE JUNGLE’은 데이브가 정글을 탐험하는 DLC입니다."
     },
     {
       "id": "maggi",
@@ -1981,21 +1932,7 @@
       "title": "MAGGI",
       "image": "portfolio-p13-0.webp",
       "role": "셰이더, 3D 에셋, 텍스처링, 리깅, 애니메이션",
-      "summary": "자석 능력을 활용하는 3D 공포 어드벤처 퍼즐 게임입니다.",
-      "features": [
-        {
-          "href": "technical-maggi.html#magnet",
-          "title": "인력과 척력 자성 이펙트"
-        },
-        {
-          "href": "technical-maggi.html#face",
-          "title": "픽셀 얼굴 애니메이션"
-        },
-        {
-          "href": "technical-maggi.html#rig",
-          "title": "기계팔 리깅"
-        }
-      ]
+      "summary": "주인공 마기가 자석의 힘으로 퍼즐을 풀고 적에 맞서는 3D 공포 어드벤처입니다."
     }
   ]
 }

@@ -7,12 +7,17 @@ import { Dialog, DialogClose, DialogContent, DialogTitle, DialogTrigger } from '
 import { BlurFade } from '@/components/ui/blur-fade'
 import { cn } from '@/lib/utils'
 import content from './content.json'
+import steamLogo from './steam-logo.svg'
+import { loadSteamReviews, type SteamReviewStats } from './lib/steam-reviews'
 
 type Media = {
   kind: string; src: string; alt: string; caption: string
   width: number; height: number; poster?: string
 }
-type Project = (typeof content.projects)[number]
+type SectionContent = { id: string; title: string; text: string[]; media: Media[] }
+type Project = Omit<(typeof content.projects)[number], 'sections'> & {
+  sections: (SectionContent & { number?: string; parts?: SectionContent[] })[]
+}
 const email = 'dudghks667@gmail.com'
 const slug = location.pathname.split('/').pop()?.replace(/\.html$/, '') || 'index'
 const project = content.projects.find(item => item.slug === slug)
@@ -66,7 +71,10 @@ function Home() {
   return <>
     <section className="home-hero panel" aria-labelledby="home-title">
       <div className="hero-heading">
-        <div className="hero-kicker"><p>심영환 <span className="text-muted-foreground">/ SHIM</span></p><p>Environment Art<br />& Technical Art</p></div>
+        <div className="hero-kicker">
+          <p>심영환 <span className="text-muted-foreground">/ SHIM</span></p>
+          <p>2026 부산대학교 정보컴퓨터공학부 학사</p>
+        </div>
         <BlurFade><h1 className="hero-name" id="home-title" translate="no">YOUNGHWAN</h1></BlurFade>
       </div>
       <div id="about" className="home-profile">
@@ -85,9 +93,13 @@ function Home() {
             <div><dt>2021–2023</dt><dd><strong>공군 교수학습혁신센터</strong><span>3차원모델링 제작병 복무<br />3D/VR 훈련 콘텐츠 제작</span></dd></div>
           </dl>
         </section>
-        <section aria-labelledby="education-title">
-          <h2 id="education-title">학력</h2>
-          <div className="education"><p className="meta">2026 · 학사</p><h3>부산대학교</h3><p>정보컴퓨터공학부</p></div>
+        <section id="awards" className="competition-results" aria-labelledby="awards-title">
+          <h2 id="awards-title">대회 성과</h2>
+          <dl>
+            <div><dt>NHN GAME AI HACKATHON 2026<a href="technical-diablackjack.html">DiaBlackJack (사전 과제)</a></dt><dd>본선 진출</dd></div>
+            <div><dt>2026 BUILD 051<a href="technical-project.html">Break Shoot</a></dt><dd>딥 블루상(일반부 1위)</dd></div>
+            <div><dt>2025 넥슨 게임잼 ‘재밌넥’<a href="technical-project.html">Break Shoot</a></dt><dd>대상</dd></div>
+          </dl>
         </section>
       </div>
     </section>
@@ -103,19 +115,20 @@ function Environment() {
     {content.environment.map((item, index) => <article key={item.slug} className="work-row">
         <a className="work-link" href={`${item.slug}.html`} aria-label={`${item.title} 상세 보기`}><figure>
           <div className="work-image"><img src={item.image} alt={item.title} width={content.projects.find(p => p.slug === item.slug)!.cover[0].width} height={content.projects.find(p => p.slug === item.slug)!.cover[0].height} loading={index ? 'lazy' : 'eager'} fetchPriority={index ? 'auto' : 'high'} decoding="async" /></div>
-          <figcaption className="work-caption"><h2 translate="no">{item.title}</h2><p className="meta">{index < 4 ? 'Prop study' : index === 4 ? 'Product film' : index === 5 ? 'Personal work' : 'Production'}</p></figcaption>
+          <figcaption className="work-caption"><h2 translate="no">{item.title}</h2><p className="meta">{item.category}</p></figcaption>
         </figure></a>
     </article>)}
   </section></>
 }
 
 function Technical() {
+  const activeSection = useActiveSection('.technical-project', content.technical[0]?.id)
   return <><section className="page-heading"><BlurFade><h1 className="display-title">TECHNICAL ART</h1></BlurFade></section><div id="work" className="technical-layout">
-    <nav className="project-rail" aria-label="TA 프로젝트"><span className="meta">프로젝트</span>{content.technical.map(item => <a href={`#${item.id}`} key={item.id}>{item.title}</a>)}<a href="#studies">개인 연구</a></nav>
+    <nav className="project-rail" aria-label="TA 프로젝트"><span className="meta">프로젝트</span>{content.technical.map(item => <a href={`#${item.id}`} key={item.id} aria-current={activeSection === item.id ? 'location' : undefined}>{item.title}</a>)}<a href="#studies" aria-current={activeSection === 'studies' ? 'location' : undefined}>개인 연구</a></nav>
     <div className="technical-projects">{content.technical.map((item, index) => <article id={item.id} className="technical-project" key={item.id}>
       <div className="project-title-row"><div><p className="meta">0{index + 1} / {index === 2 ? '민트로켓 · TA 인턴' : '팀 프로젝트'}</p><h2><a className="technical-project-link" href={`${item.slug}.html`} translate="no">{item.title}</a></h2></div><ArrowUpRight className="project-arrow" aria-hidden="true" /></div>
       <div className="technical-image"><img src={item.image} alt={`${item.title} 작업 화면`} width="960" height="540" loading={index ? 'lazy' : 'eager'} decoding="async" /></div>
-      <div className="technical-info"><div><p>{item.summary}</p><p className="technical-role">{item.role}</p></div><ol className="feature-links">{item.features.map(feature => <li key={feature.href}><a href={feature.href}>{feature.title}<ArrowUpRight aria-hidden="true" /></a></li>)}</ol></div>
+      <div className="technical-info"><p>{item.summary}</p><p className="technical-role">담당 · {item.role}</p></div>
     </article>)}
     <article id="studies" className="technical-project studies-row"><div><p className="meta">개인 연구</p><h2><a className="technical-project-link" href="technical-studies.html">리깅과 재질 연구</a></h2></div><ArrowUpRight className="project-arrow" aria-hidden="true" /></article>
     </div>
@@ -138,18 +151,16 @@ function MediaFigure({media, eager = false}: {media: Media; eager?: boolean}) {
   </figure>
 }
 
-function ProjectPage({project}: {project: Project}) {
-  const [activeSection, setActiveSection] = useState('')
+function useActiveSection(selector: string, initialId = '') {
+  const [activeSection, setActiveSection] = useState(initialId)
   useEffect(() => {
-    const sections = Array.from(document.querySelectorAll<HTMLElement>('.detail-section'))
+    const sections = Array.from(document.querySelectorAll<HTMLElement>(selector)).reverse()
     let frame = 0
     const update = () => {
       const readingLine = Math.max((document.querySelector('.header-shell')?.getBoundingClientRect().bottom ?? 0) + 32, window.innerHeight * 0.3)
-      const current = sections.find(section => {
-        const { top, bottom } = section.getBoundingClientRect()
-        return top <= readingLine && bottom > readingLine
-      })
-      setActiveSection(current?.id ?? '')
+      const atBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 1
+      const current = atBottom ? sections[0] : sections.find(section => section.getBoundingClientRect().top <= readingLine)
+      setActiveSection(current?.id ?? initialId)
     }
     const schedule = () => {
       cancelAnimationFrame(frame)
@@ -163,18 +174,60 @@ function ProjectPage({project}: {project: Project}) {
       window.removeEventListener('scroll', schedule)
       window.removeEventListener('resize', schedule)
     }
-  }, [project.slug])
+  }, [selector, initialId])
+  return activeSection
+}
+
+function SteamStore({ steam, title }: { steam: NonNullable<Project['steam']>; title: string }) {
+  const [live, setLive] = useState<SteamReviewStats | null>(null)
+  useEffect(() => loadSteamReviews(steam.appId, setLive), [steam.appId])
+  const { percent, count } = live ?? steam.snapshot
+  const rating = count ? `${percent}% 긍정적` : '평가 없음'
+  const date = live ? '' : `${steam.snapshot.date} 기준`
+  return <a id="steam" className="steam-store" href={steam.url} target="_blank" rel="noopener noreferrer"
+    aria-label={`${title} Steam 상점에서 보기 · 전체 평가 ${count}개 · ${rating} ${date}`}>
+    <img src={steamLogo} alt="" width="66" height="20" />
+    <span className="steam-rating"><strong>{rating}</strong><small>평가 {count.toLocaleString('ko-KR')}개</small>{date && <small>{date}</small>}</span>
+    <ArrowUpRight size={16} aria-hidden="true" />
+  </a>
+}
+
+function ProjectPage({project}: {project: Project}) {
+  const activeSection = useActiveSection('.detail-section')
   const technical = project.category === 'technical'
   const list = technical ? 'technical-art.html' : 'environment.html'
   const entries = technical ? content.technical : content.environment
   const currentIndex = entries.findIndex(p => p.slug === project.slug)
   const next = currentIndex >= 0 ? entries[(currentIndex + 1) % entries.length] : null
-  const meta = project.metadata.filter(item => !['TYPE', 'ASSET'].includes(item.label))
+  const recognition = project.metadata.filter(item => ['수상', '전시', '대회 성과'].includes(item.label))
+  const meta = project.metadata.filter(item => !['TYPE', 'ASSET'].includes(item.label) && !recognition.includes(item))
   return <>
-    <section className="project-heading panel"><a href={list} className="back-link"><ArrowLeft aria-hidden="true" />{technical ? 'Technical Art' : 'Environment Art'}</a><BlurFade><h1 translate="no">{project.title}</h1></BlurFade><div className="project-overview"><p>{project.summary}</p><dl className="project-meta">{meta.map(item => <div key={item.label}><dt>{({WORK:'작업',FOCUS:'작업',ROLE:'담당',TOOLS:'도구',STACK:'도구',PROJECT:'프로젝트',YEAR:'연도',PERIOD:'기간',DURATION:'기간',ORGANIZATION:'소속',CLIENT:'의뢰처',SUBJECTS:'대상',FORMAT:'구성',TECHNIQUES:'기법'} as Record<string,string>)[item.label] || item.label}</dt><dd>{item.value}</dd></div>)}</dl></div></section>
-    <div className="project-cover">{project.cover.map(media => <MediaFigure key={media.src} media={media} eager />)}</div>
-    <div className="detail-layout"><nav className="project-rail" aria-label="프로젝트 목차"><span className="meta">{technical ? '연출 & 기능' : '제작 과정'}</span>{project.sections.map((section, index) => <a key={section.id} href={`#${section.id}`} aria-current={activeSection === section.id ? 'location' : undefined}><span className="section-number">{String(index + 1).padStart(2,'0')}</span>{section.title}</a>)}</nav><div>
-      {project.sections.map((section, index) => <section className="detail-section" id={section.id} key={section.id}><div className="section-title"><span className="meta">{String(index + 1).padStart(2,'0')}</span><h2>{section.title}</h2></div>
+    <section className="project-heading panel">
+      <div className={recognition.length ? 'project-title-with-recognition' : undefined}>
+        <div><a href={list} className="back-link"><ArrowLeft aria-hidden="true" />{technical ? 'Technical Art' : 'Environment Art'}</a><BlurFade><h1 translate="no">{project.title}</h1></BlurFade></div>
+        {recognition.length > 0 && <div className="project-recognition">
+          {recognition.map(item => <section key={item.label}>
+            <h2>{item.label}</h2>
+            <ul>{item.value.split(' · ').map(entry => <li key={entry}>{entry}</li>)}</ul>
+          </section>)}
+        </div>}
+      </div>
+      <div className="project-overview">
+        <div className="project-intro">
+          <p className="project-summary">{project.summary}</p>
+          {project.steam && <SteamStore steam={project.steam} title={project.title} />}
+        </div>
+        <dl className="project-meta">{meta.map(item => <div key={item.label}><dt>{({WORK:'작업',FOCUS:'작업',ROLE:'담당',TOOLS:'도구',STACK:'도구',PROJECT:'프로젝트',YEAR:'연도',PERIOD:'기간',DURATION:'기간',ORGANIZATION:'소속',CLIENT:'의뢰처',SUBJECTS:'대상',FORMAT:'구성',TECHNIQUES:'기법'} as Record<string,string>)[item.label] || item.label}</dt><dd>{item.value}</dd></div>)}</dl>
+      </div>
+    </section>
+    <div className="project-cover" id={project.slug === 'technical-diablackjack' ? 'demo' : undefined}>{project.cover.map(media => <MediaFigure key={media.src} media={media} eager />)}</div>
+    <div className="detail-layout"><nav className="project-rail" aria-label="프로젝트 목차"><span className="meta">{technical ? '연출 & 기능' : '제작 과정'}</span>{project.sections.map((section, index) => <a key={section.id} href={`#${section.id}`} aria-current={activeSection === section.id ? 'location' : undefined}><span className="section-number">{section.number ?? String(index + 1).padStart(2,'0')}</span>{section.title}</a>)}</nav><div>
+      {project.sections.map((section, index) => <section className="detail-section" id={section.id} key={section.id}><div className="section-title"><span className="meta">{section.number ?? String(index + 1).padStart(2,'0')}</span><h2>{section.title}</h2></div>
+        {section.parts?.map(part => <div className="detail-part" key={part.id} id={part.id}>
+          <h3>{part.title}</h3>
+          {part.text.map(text => <p className="section-copy" key={text}>{text}</p>)}
+          <div className={cn('media-grid', part.id === 'ai' && 'material-grid')}>{part.media.map(media => <MediaFigure key={media.src} media={media} />)}</div>
+        </div>)}
         {section.text.filter(text => !text.startsWith('왼쪽:')).map(text => <p className="section-copy" key={text}>{text}</p>)}
         <div className={cn('media-grid', section.id === 'materials' && section.media.length > 1 && 'material-grid', project.slug === 'technical-diablackjack' && section.id === 'tool' && 'wood-collage')}>{section.media.map(media => <MediaFigure key={media.src} media={media} />)}</div>
       </section>)}
